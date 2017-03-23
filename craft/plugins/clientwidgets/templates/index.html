@@ -1,0 +1,67 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "Extreme Creations Dashboard Plugin"|t %}
+
+{% set sections = craft.sections.getEditableSections() %}
+{% set newEntrySections = [] %}
+
+{% for section in sections %}
+  {% if currentUser.can('createEntries:'~section.id) %}
+    {% set newEntrySections = newEntrySections|merge([section]) %}
+  {% endif %}
+{% endfor %}
+
+
+{% set content %}
+
+  {% if newEntrySections|length %}
+
+  <table id="sources" class="data collapsible">
+      <thead>
+          <th scope="col">Name</th>
+          <th scope="col">URL</th>
+          <th scope="col">Type</th>
+          <th scope="thin"></th>
+          <th scope="thin"></th>
+      </thead>
+      <tbody>
+      {% for section in newEntrySections %}
+        <tr>
+          <th scope="row" data-title="{{ 'Name'|t }}">{{ section.name|t }}</th>
+          <td data-title="{{ 'URL Format'|t }}" dir="ltr">
+              {%- if section.isHomepage() -%}
+                <div data-icon="home" title="{{ 'Homepage'|t }}"></div>
+              {%- else -%}
+                {{ section.getUrlFormat() }}
+              {%- endif -%}
+          </td>
+
+          <td data-title="{{ 'Type'|t }}">{{ section.type|title|t }}</td>
+
+          <td data-title="Add new entry">
+            {% if section.type == "single" %}
+            {% else %}
+              <a class="btn submit small add icon" href="{{ url('entries/'~newEntrySections[0].handle~'/new') }}">{{ "New Entry"|t }}</a>
+            {% endif %}
+          </td>
+          <td data-title="Edit existing entry">
+            {% if section.type == "single" %}
+
+              {% set singleEntry = craft.entries({sectionId:section.id})|first %}
+              <a href="{{ url('entries/'~section.handle~'/'~singleEntry.id) }}" class="btn small">Edit entry</a>
+
+            {% else %}
+              <a href="{{ url('entries/'~section.handle) }}" class="btn small">Edit entries</a>
+            {% endif %}
+          </td>
+
+        </tr>
+
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+  {% endif %}
+
+{% endset %}

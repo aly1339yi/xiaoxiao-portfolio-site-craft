@@ -1,0 +1,42 @@
+{% set entries = craft.entries.section('contactFormEntries').limit('10').order('postDate desc').find() %}
+
+{% set section = craft.sections.getSectionById('6') %}
+
+<div class="eccontact-container">
+  {% if entries|length %}
+    <p>This widget displays the 10 most recent submissions through the contact form.</p>
+    <table class="data fullwidth">
+
+      {% for entry in entries %}
+
+          <tr>
+            <td>
+              <a href="{{ entry.cpEditUrl }}">{{ entry.title }}</a>
+            </td>
+            <td>
+              submitted {{entry.postDate|date("H:i d-m-Y")}}
+            </td>
+            <td>
+              <a href="{{ entry.cpEditUrl }}" class="btn small">View entry</a>
+            </td>
+          </tr>
+
+      {% endfor %}
+
+      <tr>
+        <td>
+
+        </td>
+        <td style="text-align:center;">
+          <a href="{{ url('entries/'~section.handle) }}" class="btn">View all</a>
+        </td>
+        <td>
+
+        </td>
+      </tr>
+
+    </table>
+  {% else %}
+    <p>{{ "No entries exist yet."|t }}</p>
+  {% endif %}
+</div>

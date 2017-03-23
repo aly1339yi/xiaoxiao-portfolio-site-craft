@@ -1,0 +1,15 @@
+
+/*
+
+{
+	"buttons": ["format","bold","italic",'underline',"lists","link"],
+	"plugins": ["source","fullscreen","bufferbuttons","fontfamily"]
+}
+*/
+
+
+
+{
+	"buttons": ["format","bold",'underline',"lists","link"],
+	"plugins": ["source","fullscreen","bufferbuttons"]
+}

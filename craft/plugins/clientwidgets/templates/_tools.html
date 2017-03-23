@@ -1,0 +1,19 @@
+{% includeCssResource 'css/settings.css' %}
+{% includeJsResource 'js/settings.js' %}
+
+<div class="ectwitter-container">
+
+  <table class="data fullwidth">
+
+      {% for tool in tools %}
+        <tr>
+          <td>
+            <a id="tool-{{ tool.getClassHandle() }}" data-icon="{{ tool.getIconValue() }}"> {{ tool.getName() }}</a>
+          </td>
+        </tr>
+        {% includeJs 'new Craft.Tool("'~tool.getClassHandle()~'", '~tool.getOptionsHtml()|json_encode~', "'~tool.getButtonLabel()~'");' %}
+      {% endfor %}
+
+  </table>
+
+</div>

@@ -1,0 +1,15 @@
+{% extends "videos/_layouts/settings" %}
+
+{% set content %}
+
+    {% for gateway in gateways %}
+
+        {{ gateway.getSettingsHtml()|raw }}
+
+        {% if not loop.last %}
+            <hr />
+        {% endif %}
+
+    {% endfor %}
+
+{% endset %}

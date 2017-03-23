@@ -1,0 +1,6 @@
+
+
+{
+	"buttons": ["bold","italic",'underline',"lists","link"],
+	"plugins": ["source","fullscreen","bufferbuttons"]
+}

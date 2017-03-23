@@ -1,0 +1,47 @@
+{% extends "/_layout.html" %}
+
+
+{% set body_class = "template-indie-works-page" %}
+
+{% block main %}
+
+
+
+<div class="indie-works-page-container">
+
+
+	<div class="indie-works-grid clearfix">
+	
+	
+		{% for entry in craft.entries.section('indieWorksSection') %}
+	
+		<div class="indie-works-grid-item">
+		
+		
+	        <div class="indie-work-card work-card">
+	        
+	        	<div class="indie-work-card-image-wrapper">
+	                <img class="indie-work-card-image img-fullwidth" src="{{ entry.workCoverImage.first().url }}">                  		
+	        	</div>
+	        	
+				<div class="indie-work-card-details" style="background-color: {{ entry.workBkgColor }} ; color: {{ entry.workFontColor }};">
+					<div class="indie-work-card-title">{{ entry.title }}</div>
+					<div class="indie-work-card-category">{{ entry.workCategory.first().title }}</div>
+				</div>
+				
+	        </div> 		
+		
+		
+		</div>
+	
+		{% endfor %}
+		
+	
+	</div>
+
+
+
+</div>
+
+
+{% endblock main %}
