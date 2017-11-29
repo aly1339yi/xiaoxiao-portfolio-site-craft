@@ -1,4 +1,4 @@
-# Craft OAuth
+# OAuth for Craft CMS
 
 Helps Craft developers get their plugin connected to OAuth-enabled web services.
 
@@ -7,7 +7,7 @@ Helps Craft developers get their plugin connected to OAuth-enabled web services.
 ## Requirements
 
 - [Craft 2.5+](http://craftcms.com/)
-- **PHP 5.5+**
+- **PHP 5.6+**
 
 ## Installation
 
@@ -19,5 +19,3 @@ Helps Craft developers get their plugin connected to OAuth-enabled web services.
 
 - [OAuth Plugin Overview](https://dukt.net/craft/oauth/)
 - [OAuth Documentation](https://dukt.net/craft/oauth/docs)
-
-[Dukt.net](https://dukt.net/) © 2016 - All rights reserved

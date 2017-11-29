@@ -1,9 +1,4 @@
 <?php
-/**
- * @link      https://dukt.net/craft/oauth/
- * @copyright Copyright (c) 2016, Dukt
- * @license   https://dukt.net/craft/oauth/docs/license
- */
 
 namespace Craft;
 
@@ -12,27 +7,27 @@ class OauthPlugin extends BasePlugin
     // Public Methods
     // =========================================================================
 
-    public function init()
-    {
-        require_once(CRAFT_PLUGINS_PATH.'oauth/vendor/autoload.php');
-        require_once(CRAFT_PLUGINS_PATH.'oauth/etc/providers/IOauth_Provider.php');
-        require_once(CRAFT_PLUGINS_PATH.'oauth/providers/BaseProvider.php');
-        
-        parent::init();
-    }
     /**
      * Get OAuth Providers
      */
     public function getOauthProviders()
     {
         require_once(CRAFT_PLUGINS_PATH.'oauth/providers/Facebook.php');
+        require_once(CRAFT_PLUGINS_PATH.'oauth/providers/Github.php');
         require_once(CRAFT_PLUGINS_PATH.'oauth/providers/Google.php');
+        require_once(CRAFT_PLUGINS_PATH.'oauth/providers/Instagram.php');
+        require_once(CRAFT_PLUGINS_PATH.'oauth/providers/Linkedin.php');
+        require_once(CRAFT_PLUGINS_PATH.'oauth/providers/Slack.php');
         require_once(CRAFT_PLUGINS_PATH.'oauth/providers/Twitter.php');
         require_once(CRAFT_PLUGINS_PATH.'oauth/providers/Vimeo.php');
 
         return [
             'Dukt\OAuth\Providers\Facebook',
+            'Dukt\OAuth\Providers\Github',
             'Dukt\OAuth\Providers\Google',
+            'Dukt\OAuth\Providers\Instagram',
+            'Dukt\OAuth\Providers\Linkedin',
+            'Dukt\OAuth\Providers\Slack',
             'Dukt\OAuth\Providers\Twitter',
             'Dukt\OAuth\Providers\Vimeo'
         ];
@@ -41,7 +36,7 @@ class OauthPlugin extends BasePlugin
     /**
      * Get Name
      */
-    function getName()
+    public function getName()
     {
         return Craft::t('OAuth');
     }
@@ -59,7 +54,7 @@ class OauthPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '2.0.3';
+        return '2.1.1';
     }
 
     /**
@@ -75,7 +70,7 @@ class OauthPlugin extends BasePlugin
     /**
      * Get Developer
      */
-    function getDeveloper()
+    public function getDeveloper()
     {
         return 'Dukt';
     }
@@ -83,7 +78,7 @@ class OauthPlugin extends BasePlugin
     /**
      * Get Developer URL
      */
-    function getDeveloperUrl()
+    public function getDeveloperUrl()
     {
         return 'https://dukt.net/';
     }
@@ -94,14 +89,6 @@ class OauthPlugin extends BasePlugin
     public function getDocumentationUrl()
     {
         return 'https://dukt.net/craft/oauth/docs/';
-    }
-
-    /**
-     * Get Release Feed URL
-     */
-    public function getReleaseFeedUrl()
-    {
-        return 'https://dukt.net/craft/oauth/updates.json';
     }
 
     /**
@@ -143,5 +130,13 @@ class OauthPlugin extends BasePlugin
     public function getSettingsUrl()
     {
         return 'oauth';
+    }
+
+    /**
+     * Get release feed URL
+     */
+    public function getReleaseFeedUrl()
+    {
+        return 'https://raw.githubusercontent.com/dukt/oauth/v2/releases.json';
     }
 }

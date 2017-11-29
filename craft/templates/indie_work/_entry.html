@@ -6,8 +6,138 @@
 {% block main %}
 
 
+{% set gallery_length = entry.workGallery|length %}
+
+{% set has_video = entry.workVideo is not empty %}
 
 
+<div class="indie-single-work-page-container">
+
+
+	{# INDIE SINGLE WORK #}
+
+	<div id="work" class="indie-single-work work">
+
+		{# MEDIA #}
+
+		<div class="indie-single-work-media work-media">
+
+		{% if has_video %}
+
+			{% if gallery_length >0 %}
+
+				<div class="indie-single-work-gallery-wrapper">
+
+					{% for image in entry.workGallery %}
+
+						<div class="indie-single-work-gallery-image-wrapper">
+							<img src="{{image.url}}" class="indie-single-work-gallery-image block-fullwidth">
+						</div>
+
+					{% endfor %}
+
+				</div>
+
+				<div class="indie-single-work-video">
+
+					<div class="indie-single-work-video fitvids">{{ entry.workVideo.embed() }}</div>
+
+				</div>
+
+			{% else %}
+
+
+				<div class="indie-single-work-video-wrapper">
+
+					<div class="display-table">
+					<div class="display-table-cell">
+
+						<div class="indie-single-work-video">
+
+							<div class="indie-single-work-video fitvids">{{ entry.workVideo.embed() }}</div>
+
+						</div>
+
+					</div>
+					</div>
+
+				</div>
+
+
+			{% endif %}
+
+
+		{% elseif gallery_length == 1 %}
+
+
+			<div class="indie-single-work-single-image" style="background-image: url({{ entry.workGallery.first().url }})"></div>
+
+
+		{% else %}
+
+
+			<div class="indie-single-work-gallery-wrapper">
+
+				{% for image in entry.workGallery %}
+
+					<div class="indie-single-work-gallery-image-wrapper">
+						<img src="{{image.url}}" class="indie-single-work-gallery-image block-fullwidth">
+					</div>
+
+				{% endfor %}
+
+			</div>
+
+
+		{% endif %}
+
+		</div>
+
+		{# END MEDIA #}
+
+
+		{# DESCRIPTION #}
+
+		<div class="indie-single-work-description">{{ entry.workDescription }}</div>
+
+		{# END DESCRIPTION #}
+
+
+		{# NAV #}
+
+		{% set list = craft.entries.section('indieWorksSection')%}
+
+		{% set prevEntry = entry.getPrev(list) %}
+		{% set nextEntry = entry.getNext(list) %}
+
+		{% if prevEntry %}
+
+		<div class="work-nav-prev-bar work-nav-bar">
+			<a href="{{ prevEntry.url }}" data-work-url="{{ prevEntry.url }}" class="work-nav-prev work-nav js-load-work elegant-icon">&#x23;</a>
+		</div>
+
+		{% endif %}
+
+		{% if nextEntry %}
+
+		<div class="work-nav-next-bar work-nav-bar">
+			<a href="{{ nextEntry.url }}" data-work-url="{{ nextEntry.url }}" class="work-nav-next work-nav js-load-work elegant-icon">&#x24;</a>
+		</div>
+
+		{% endif %}
+
+		{# END NAV #}
+
+
+
+	</div>
+
+	{# END INDIE SINGLE WORK #}
+
+
+	<a href="{{ url('indie-works') }}" class="work-close elegant-icon">&#x4d;</a>
+
+</div>
 
 
 

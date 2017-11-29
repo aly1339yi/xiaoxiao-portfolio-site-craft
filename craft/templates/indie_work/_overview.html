@@ -1,7 +1,7 @@
 {% extends "/_layout.html" %}
 
 
-{% set body_class = "template-indie-works-page" %}
+{% set body_class = "template-indie-works-page template-works-page" %}
 
 {% block main %}
 
@@ -10,21 +10,22 @@
 <div class="indie-works-page-container">
 
 
-	<div class="indie-works-grid clearfix">
-	
+	{# INDIE WORKS GRID #}
+
+	<div class="indie-works-grid grid">
 	
 		{% for entry in craft.entries.section('indieWorksSection') %}
 	
-		<div class="indie-works-grid-item">
+		<div class="indie-works-grid-item grid-item one-half medium-up-one-third">
 		
-		
-	        <div class="indie-work-card work-card">
-	        
+			
+	        <div class="indie-work-card work-card js-load-work" data-work-url="{{ entry.url }}">
+	        	
 	        	<div class="indie-work-card-image-wrapper">
-	                <img class="indie-work-card-image img-fullwidth" src="{{ entry.workCoverImage.first().url }}">                  		
+	                <img class="indie-work-card-image block-fullwidth" src="{{ entry.workCoverImage.first().url }}">                  
 	        	</div>
 	        	
-				<div class="indie-work-card-details" style="background-color: {{ entry.workBkgColor }} ; color: {{ entry.workFontColor }};">
+				<div class="indie-work-card-details" style="background-color: {{ entry.workBkgColor }}; color: {{ entry.workFontColor }};">
 					<div class="indie-work-card-title">{{ entry.title }}</div>
 					<div class="indie-work-card-category">{{ entry.workCategory.first().title }}</div>
 				</div>
@@ -38,6 +39,38 @@
 		
 	
 	</div>
+
+	{# END INDIE WORKS GRID #}
+
+
+	<div class="loading-work-stage">
+	
+	
+		<div id="loading-work-container" class="loading-work-container"></div>
+		
+		
+		<div class="loading-work-stage-close work-close elegant-icon" data-works-url="{{ craft.request.url }}">&#x4d;</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

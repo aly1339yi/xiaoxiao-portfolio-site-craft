@@ -1,9 +1,4 @@
 <?php
-/**
- * @link      https://dukt.net/craft/oauth/
- * @copyright Copyright (c) 2016, Dukt
- * @license   https://dukt.net/craft/oauth/docs/license
- */
 
 namespace Craft;
 
@@ -599,6 +594,10 @@ class OauthService extends BaseApplicationComponent
      */
     private function _getProviders()
     {
+        require_once(CRAFT_PLUGINS_PATH.'oauth/vendor/autoload.php');
+        require_once(CRAFT_PLUGINS_PATH.'oauth/etc/providers/IOauth_Provider.php');
+        require_once(CRAFT_PLUGINS_PATH.'oauth/providers/BaseProvider.php');
+
         // fetch all OAuth provider types
 
         $oauthProviderTypes = array();
@@ -615,7 +614,8 @@ class OauthService extends BaseApplicationComponent
 
         foreach($oauthProviderTypes as $oauthProviderType)
         {
-            $providers[$oauthProviderType] = $this->_createProvider($oauthProviderType);
+            $provider = $this->_createProvider($oauthProviderType);
+            $providers[$provider->getHandle()] = $provider;
         }
 
         ksort($providers);

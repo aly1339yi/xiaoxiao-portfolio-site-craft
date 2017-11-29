@@ -1,0 +1,404 @@
+/* ========================================================================
+   list-get Mimic map-get
+   ========================================================================= */
+
+@function list-get($list, $key) {
+   @each $item in $list{
+  $item-key: nth($item, 1);
+  $item-value: nth($item, 2);
+  @if $item-key == $key {
+     @return $item-value;
+  }
+  }
+}
+
+/* ========================================================================
+   Media Query
+   ========================================================================= */
+
+ /* max-width */
+
+@mixin mq-lt($value) {
+   @if type-of($value) == number{
+  @media only screen and (max-width: $value - 1) {
+     @content;
+  }
+  }
+  @else {
+   @media only screen and (max-width: list-get($breakpoint, $value) - 1){
+    @content;
+  }
+  }
+}
+
+ /* min-width */
+
+@mixin mq-gteq($value) {
+   @if type-of($value) == number{
+  @media only screen and (min-width: $value ) {
+     @content;
+  }
+  }
+  @else {
+   @media only screen and (min-width: list-get($breakpoint, $value)){
+    @content;
+  }
+  }
+}
+
+
+ /* all in one (new) */
+
+@mixin screen($range:null, $min:null, $max:null) {
+
+  @if ($range){
+  @media only screen and #{list-get($breakpoint-range, $range)}{
+    @content;
+  }
+  }
+
+  @else{
+  $query: "only screen and all" !default;
+
+  @if $min and $max {
+    $query: "only screen and (min-width: #{$min}) and (max-width: #{$max})";
+  }
+  @else if $min {
+    $query: "only screen and (min-width: #{$min})"; 
+  }
+  @else if $max {
+    $query: "only screen and (max-width: #{$max})";  
+  }
+  @media #{$query} { 
+    @content;
+  }
+
+  }
+
+}
+
+
+/* ========================================================================
+   Flexbox
+   ========================================================================= */
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flexflow($values) {
+  -webkit-flex-flow: $values;
+  -moz-flex-flow: $values;
+  -ms-flex-flow: $values;
+  flex-flow: $values;
+}
+
+@mixin justify-content($value) {
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+
+@mixin align-items($value) {
+  -webkit-align-items: $value;
+  align-items: $value;
+}
+
+
+/* ========================================================================
+   Quantity Query
+   ========================================================================= */
+
+@mixin has-nth($expression, $element: '*') {
+  &:nth-last-child(#{$expression}):first-child,
+  &:nth-last-child(#{$expression}):first-child ~ #{$element} {
+  @content;
+  }
+}
+
+@mixin at-least($quantity, $element: '*') {
+  &:nth-last-child(n + #{$quantity}):first-child,
+  &:nth-last-child(n + #{$quantity}):first-child ~ #{$element} {
+   @content;
+  }
+}
+
+@mixin at-most($quantity, $element: '*') {
+  &:nth-last-child(-n + #{$quantity}):first-child,
+   &:nth-last-child(-n + #{$quantity}):first-child ~ #{$element} {
+   @content;
+   }
+}
+
+
+/* ========================================================================
+   Vendor Prefix
+   ========================================================================= */
+
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+/* ========================================================================
+   Transition & Transform
+   ========================================================================= */
+
+
+
+@mixin transition($transitions...) {
+  $unfoldedTransitions: ();
+  @each $transition in $transitions {
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+  }
+  
+  -webkit-transition: $unfoldedTransitions;
+  transition: $unfoldedTransitions;
+}
+
+@function unfoldTransition ($transition) {
+  // Default values
+  $property: all;
+  $duration: 400ms;
+  $easing: ease-in-out; // Browser default is ease, which is what we want
+  $delay: 0s; // Browser default is 0, which is what we want
+  $defaultProperties: ($property, $duration, $easing, $delay);
+
+  // Grab transition properties if they exist
+  $unfoldedTransition: ();
+  @for $i from 1 through length($defaultProperties) {
+    $p: null;
+    @if $i <= length($transition) {
+      $p: nth($transition, $i)
+    } @else {
+      $p: nth($defaultProperties, $i)
+    }
+    $unfoldedTransition: append($unfoldedTransition, $p);
+  }
+
+  @return $unfoldedTransition;
+}
+
+// @mixin transition($property: all, $duration: 400ms, $function: ease-in-out, $delay:0s) {
+//   $properties: $property $duration $function $delay;
+//   @include css3-prefix( 'transition', $properties);
+// }
+
+
+
+@mixin transform($params) {
+   @include css3-prefix( 'transform', $params);
+}
+
+
+/* ========================================================================
+   Overlay
+   ========================================================================= */
+
+@mixin overlay($position) {
+  position: $position;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin fullscreen-overlay{
+
+    @include overlay(fixed);
+
+    z-index:list-get($z-index, 'fullscreen-overlay');
+
+    background-color: rgba(#fff, 0.7);
+    
+    overflow: auto;
+}
+
+
+/* ========================================================================
+   Hover
+   ========================================================================= */
+
+
+@mixin hover-opacity {
+
+  cursor: pointer;
+
+  html.mod-no-mobile & {
+    
+    @include transition(opacity 400ms);
+    &:hover{
+      opacity: 0.4;
+    }
+  }
+  
+}
+
+
+@mixin hover-underline {
+
+  cursor: pointer;
+
+  html.mod-no-mobile & {
+    
+    span{
+      border-bottom: 1px solid transparent;
+      @include transition(border 400ms);
+    }
+
+    &:hover span{
+      border-bottom: 1px solid #000;
+    }
+  }
+
+}
+
+/* ========================================================================
+   Image Ratio
+   ========================================================================= */
+
+
+@mixin ratio($ratio) {
+
+  position: relative;
+
+  padding-top: percentage(1 / $ratio);
+
+}
+
+
+
+/* ========================================================================
+   Input Placeholder
+   ========================================================================= */
+
+@mixin input-placeholder {
+  &::-webkit-input-placeholder {
+  @content
+  }
+  &:-moz-placeholder {
+  @content
+  }
+  &::-moz-placeholder {
+  @content
+  }
+  &:-ms-input-placeholder {
+  @content
+  }
+}
+
+
+
+/* ========================================================================
+   Other
+   ========================================================================= */
+
+
+/* invisible */
+@mixin invisible{
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+/* visible */
+@mixin visible{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* max-width */
+
+@mixin max-width($width, $align:null){
+
+  max-width: $width;
+
+  @if ($align){
+
+    @if ($align == 'center') {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @else if ($align == 'right') {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+  }
+
+}
+
+
+/* clearfix */
+
+@mixin clearfix{
+  &:after {
+  content: " ";
+  display: block;
+  clear: both;
+  }
+}
+
+
+/* overflow auto */
+
+@mixin overflow-auto{
+  overflow: auto;
+  /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+/* text nowrap ellipsis */
+
+@mixin text-nowrap-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+@mixin line-clamp($line) {
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical; 
+
+}
+
+
+
+
+
+@mixin list-hover-style {
+
+    html.mod-no-mobile &{
+
+        &:hover >li >a{
+            color: $color-grey;
+        }
+
+        >li >a{
+            cursor: pointer;
+            @include transition(color 400ms);
+            &:hover{
+                color: $color-black !important;
+            }
+        }
+    }
+
+}
+
+
+
+

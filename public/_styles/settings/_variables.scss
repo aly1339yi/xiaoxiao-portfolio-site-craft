@@ -1,0 +1,168 @@
+/* =========================================================================
+    Color
+========================================================================= */
+
+$color-black   : #000;
+
+$color-white   : #fff;
+
+$color-grey    : #ccc;
+
+$color-red     : #a30000;
+
+$color-primary : $color-black;
+
+
+$color: (
+
+    'primary'         $color-black,
+
+    'warning'         $color-red,
+
+    'bullet'          transparent,
+
+    'bullet-selected' #000,
+
+    null
+
+);
+
+
+
+/* =========================================================================
+    Font Size (html font-size 10px)
+========================================================================= */
+
+
+$font-size-xx-small : 1.0em;
+
+$font-size-x-small  : 1.2rem;
+
+$font-size-small    : 1.4rem;
+
+$font-size-medium   : 1.6rem;
+
+$font-size-large    : 1.8rem;
+
+$font-size-x-large  : 2.0rem;
+
+$font-size-xx-large : 3.0rem;
+
+
+$font-size-normal   : $font-size-small;
+
+
+$font-size: (
+
+    'body' $font-size-normal,
+
+    'h6'   1.3rem,
+
+    'h5'   1.4rem,
+
+    'h4'   1.8rem,
+
+    'h3'   2.4rem,
+
+    'h2'   3rem,
+
+    'h1'   3rem,
+
+    null
+
+);
+
+
+
+/* =========================================================================
+    Responsive
+========================================================================= */
+
+$breakpoint-x-small : 576px;
+$breakpoint-small   : 768px;
+$breakpoint-medium  : 992px;
+$breakpoint-large   : 1200px;
+$breakpoint-x-large : 1400px;
+
+$breakpoint-nav-bp  : $breakpoint-medium;
+
+
+$breakpoint-range: (
+
+    'x-small-down'  '(max-width: #{$breakpoint-x-small - 1})',
+    'x-small-up'    '(min-width: #{$breakpoint-x-small})',
+    'small-down'    '(max-width: #{$breakpoint-small - 1})',
+    'small-up'      '(min-width: #{$breakpoint-small})',
+    'medium-down'   '(max-width: #{$breakpoint-medium - 1})',
+    'medium-up'     '(min-width: #{$breakpoint-medium})',
+    'large-down'    '(max-width: #{$breakpoint-large - 1})',
+    'large-up'      '(min-width: #{$breakpoint-large})',
+    'x-large-down'  '(max-width: #{$breakpoint-x-large - 1})',
+    'x-large-up'    '(min-width: #{$breakpoint-x-large})',
+
+    'nav-bp-down'   '(max-width: #{$breakpoint-nav-bp - 1})',
+    'nav-bp-up'     '(min-width: #{$breakpoint-nav-bp})',
+
+    'x-small-small' '(min-width: #{$breakpoint-x-small}) and (max-width: #{$breakpoint-small - 1})',
+    'small-medium'  '(min-width: #{$breakpoint-small}) and (max-width: #{$breakpoint-medium - 1})',
+    'medium-large'  '(min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large - 1})',
+    'large-x-large' '(min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-x-large - 1})'
+
+    null
+
+);
+
+
+$breakpoint: (
+
+    'x-small' 576px,
+    'small'   768px,
+    'medium'  992px,
+    'large'   1200px,
+    'x-large' 1400px,
+
+    'nav'     768px,
+
+    null
+
+);
+
+
+/* =========================================================================
+    Grid
+========================================================================= */
+
+
+$grid-gutter: (
+
+    'x-small' 5px,
+    'small'   10px,
+    'medium'  30px,
+    'large'   40px,
+    'x-large' 60px,
+
+null
+
+);
+
+
+
+/* =========================================================================
+    Z-Index
+========================================================================= */
+
+$z-index: (
+
+    'navbar'             200,
+
+    'fullscreen-overlay' 300,
+
+    'mini-cart'          400,
+
+    null
+
+
+);
+
+
+

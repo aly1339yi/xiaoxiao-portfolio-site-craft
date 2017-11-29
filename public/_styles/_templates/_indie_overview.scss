@@ -1,0 +1,205 @@
+
+
+
+
+.loading-work-stage{
+	
+	display: none;
+	opacity: 0;
+	position: fixed;
+	
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	
+	overflow: auto;
+	
+	background-color: rgba( #000, .9 );
+	
+}
+
+
+
+.work{
+
+}
+
+.work-close{
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	
+	color: #fff;
+	font-size: 45px;
+	text-align: center;
+
+	cursor: pointer;
+
+	@include transition($property: transform, $duration:800ms, $function:cubic-bezier(.27,1.64,.32,.95));
+
+	html.device-no-mobile &:hover{
+
+		@include transform(rotate(90deg));
+
+	}
+
+
+}
+
+
+.work-nav-bar{
+
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 80px;
+	overflow: hidden;
+
+}
+
+.work-nav-prev-bar{
+
+	left: 0;
+
+}
+
+.work-nav-next-bar{
+
+	right: 0;
+
+}
+
+
+.work-nav{
+
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	@include transform(translateY(-50%));
+
+	height: 80px;
+	line-height: 80px;
+	
+	color: #fff;
+	font-size: 40px;
+	text-align: center;
+
+	@include transition($property: transform, $duration:400ms);
+
+}
+
+
+.work-nav-prev{
+	html.device-no-mobile &:hover{
+		@include transform(translateY(-50%) translateX(-10%));
+	}
+
+}
+
+.work-nav-next{
+	html.device-no-mobile &:hover{
+		@include transform(translateY(-50%) translateX(10%));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.indie-works-grid-item{
+	
+
+	
+	
+	
+}
+
+
+.indie-work-card{
+	
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	
+	
+}
+
+
+
+.indie-work-card-details{
+	
+	text-align: right;
+	
+}
+
+.indie-work-card-title{
+	padding: 20px 20px 5px;
+	font-size: 25px;
+}
+
+
+.indie-work-card-category{
+	padding: 5px 20px 20px;
+	font-size: 12px;
+	text-transform: capitalize;
+}
+
+
+
+
+.indie-work-card{
+	
+	html.mod-no-mobile &{
+		
+
+		.indie-work-card-image-wrapper{
+			
+			@include transition(transform 400ms);
+		}
+
+		.indie-work-card-details{
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;	
+			
+			@include transition(transform 400ms);
+			
+			@include transform(translateY(100%));
+		}
+		
+		
+		&:hover{
+			
+			.indie-work-card-image-wrapper{
+				@include transform(translateY(-10%));
+			}
+	
+			.indie-work-card-details{
+				@include transform(translateY(0));
+			}
+		
+		}
+
+
+	}
+	
+	
+}
+
+
