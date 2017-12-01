@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Wed, 29 Nov 2017 05:36:24 +0000 (0.5502s) */
+/* compiled by scssphp v0.1.10 on Fri, 01 Dec 2017 06:14:25 +0000 (0.7169s) */
 
 /* =========================================================================
  Color
@@ -4241,8 +4241,103 @@ body {
   font-family: 'GillSansStd';
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 1.4rem;
   letter-spacing: 0.02em; }
+
+/* =========================================================================
+ Commercial Works Overview
+ ========================================================================= */
+
+.comml-work-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; }
+
+html.mod-no-mobile .comml-work-card .comml-work-card-image-wrapper {
+  -webkit-transition: transform 400ms ease-in-out 0s;
+  transition: transform 400ms ease-in-out 0s; }
+  html.mod-no-mobile .comml-work-card .comml-work-card-details {
+    -webkit-transition: opacity 400ms ease-in-out 0s;
+    transition: opacity 400ms ease-in-out 0s; }
+  html.mod-no-mobile .comml-work-card:hover .comml-work-card-image-wrapper {
+    -webkit-transform: scale(1.2);
+    -khtml-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2); }
+    html.mod-no-mobile .comml-work-card:hover .comml-work-card-details {
+      opacity: 1; }
+
+.comml-work-card-image-wrapper {
+  -webkit-transform: scale(1.01);
+  -khtml-transform: scale(1.01);
+  -moz-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  -o-transform: scale(1.01);
+  transform: scale(1.01); }
+
+.comml-work-card-details {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.comml-work-card-title {
+  font-size: 2.5rem;
+  text-align: center; }
+/* =========================================================================
+ Indie Works Overview
+ ========================================================================= */
+.indie-work-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; }
+
+html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
+  -webkit-transition: transform 400ms ease-in-out 0s;
+  transition: transform 400ms ease-in-out 0s; }
+  html.mod-no-mobile .indie-work-card .indie-work-card-details {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: transform 400ms ease-in-out 0s;
+    transition: transform 400ms ease-in-out 0s;
+    -webkit-transform: translateY(100%);
+    -khtml-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%); }
+  html.mod-no-mobile .indie-work-card:hover .indie-work-card-image-wrapper {
+    -webkit-transform: translateY(-10%);
+    -khtml-transform: translateY(-10%);
+    -moz-transform: translateY(-10%);
+    -ms-transform: translateY(-10%);
+    -o-transform: translateY(-10%);
+    transform: translateY(-10%); }
+    html.mod-no-mobile .indie-work-card:hover .indie-work-card-details {
+      -webkit-transform: translateY(0);
+      -khtml-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0); }
+
+.indie-work-card-details {
+  text-align: right; }
+
+.indie-work-card-title {
+  padding: 20px 20px 5px;
+  font-size: 2.5rem; }
+
+.indie-work-card-category {
+  padding: 5px 20px 20px;
+  font-size: 1.2rem;
+  text-transform: capitalize; }
 
 .loading-work-stage {
   display: none;
@@ -4254,6 +4349,62 @@ body {
   bottom: 0;
   overflow: auto;
   background-color: rgba(0, 0, 0, .9); }
+/* =========================================================================
+ Commercial Work
+ ========================================================================= */
+.comml-work-hero-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover; }
+
+.comml-work-main {
+  border: 1px solid red;
+  margin-top: calc(100vh - 200px); }
+
+.comml-work-text-section {
+  padding: 0 15px; }
+
+/* =========================================================================
+ Indie Work
+ ========================================================================= */
+
+.indie-work-container {
+  background-color: #000; }
+
+.indie-work {
+  position: relative; }
+
+.indie-work-video-wrapper {
+  height: 100vh; }
+
+.indie-work-video {
+  width: 1000px;
+  margin: auto; }
+
+.indie-work-single-image {
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; }
+
+.indie-work-gallery-wrapper {
+  max-width: 600px;
+  margin: auto; }
+
+.indie-work-description {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  padding-left: 25px;
+  padding-bottom: 25px;
+  color: #fff; }
 
 .work-close {
   position: fixed;
@@ -4266,10 +4417,10 @@ body {
   font-size: 45px;
   text-align: center;
   cursor: pointer;
-  -webkit-transition: transform 400ms ease-in-out 0s, 800ms 400ms ease-in-out 0s, cubic-bezier(0.27, 1.64, 0.32, 0.95) 400ms ease-in-out 0s;
-  transition: transform 400ms ease-in-out 0s, 800ms 400ms ease-in-out 0s, cubic-bezier(0.27, 1.64, 0.32, 0.95) 400ms ease-in-out 0s; }
+  -webkit-transition: transform 800ms cubic-bezier(0.27, 1.64, 0.32, 0.95) 0s;
+  transition: transform 800ms cubic-bezier(0.27, 1.64, 0.32, 0.95) 0s; }
 
-html.device-no-mobile .work-close:hover {
+html.mod-no-mobile .work-close:hover {
   -webkit-transform: rotate(90deg);
   -khtml-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -4304,12 +4455,12 @@ html.device-no-mobile .work-close:hover {
   height: 80px;
   line-height: 80px;
   color: #fff;
-  font-size: 40px;
+  font-size: 4rem;
   text-align: center;
-  -webkit-transition: transform 400ms ease-in-out 0s, 400ms 400ms ease-in-out 0s;
-  transition: transform 400ms ease-in-out 0s, 400ms 400ms ease-in-out 0s; }
+  -webkit-transition: transform 400ms ease-in-out 0s;
+  transition: transform 400ms ease-in-out 0s; }
 
-html.device-no-mobile .work-nav-prev:hover {
+html.mod-no-mobile .work-nav-prev:hover {
   -webkit-transform: translateY(-50%) translateX(-10%);
   -khtml-transform: translateY(-50%) translateX(-10%);
   -moz-transform: translateY(-50%) translateX(-10%);
@@ -4317,90 +4468,10 @@ html.device-no-mobile .work-nav-prev:hover {
   -o-transform: translateY(-50%) translateX(-10%);
   transform: translateY(-50%) translateX(-10%); }
 
-html.device-no-mobile .work-nav-next:hover {
+html.mod-no-mobile .work-nav-next:hover {
   -webkit-transform: translateY(-50%) translateX(10%);
   -khtml-transform: translateY(-50%) translateX(10%);
   -moz-transform: translateY(-50%) translateX(10%);
   -ms-transform: translateY(-50%) translateX(10%);
   -o-transform: translateY(-50%) translateX(10%);
   transform: translateY(-50%) translateX(10%); }
-
-.indie-work-card {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer; }
-
-.indie-work-card-details {
-  text-align: right; }
-
-.indie-work-card-title {
-  padding: 20px 20px 5px;
-  font-size: 25px; }
-
-.indie-work-card-category {
-  padding: 5px 20px 20px;
-  font-size: 12px;
-  text-transform: capitalize; }
-
-html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
-  -webkit-transition: transform 400ms ease-in-out 0s;
-  transition: transform 400ms ease-in-out 0s; }
-  html.mod-no-mobile .indie-work-card .indie-work-card-details {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: transform 400ms ease-in-out 0s;
-    transition: transform 400ms ease-in-out 0s;
-    -webkit-transform: translateY(100%);
-    -khtml-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    transform: translateY(100%); }
-  html.mod-no-mobile .indie-work-card:hover .indie-work-card-image-wrapper {
-    -webkit-transform: translateY(-10%);
-    -khtml-transform: translateY(-10%);
-    -moz-transform: translateY(-10%);
-    -ms-transform: translateY(-10%);
-    -o-transform: translateY(-10%);
-    transform: translateY(-10%); }
-    html.mod-no-mobile .indie-work-card:hover .indie-work-card-details {
-      -webkit-transform: translateY(0);
-      -khtml-transform: translateY(0);
-      -moz-transform: translateY(0);
-      -ms-transform: translateY(0);
-      -o-transform: translateY(0);
-      transform: translateY(0); }
-
-.indie-single-work-page-container {
-  background-color: #000; }
-
-.indie-single-work {
-  position: relative; }
-
-.indie-single-work-video-wrapper {
-  height: 100vh; }
-
-.indie-single-work-video {
-  width: 1000px;
-  margin: auto; }
-
-.indie-single-work-single-image {
-  height: 100vh;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain; }
-
-.indie-single-work-gallery-wrapper {
-  max-width: 600px;
-  margin: auto; }
-
-.indie-single-work-description {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 300px;
-  padding-left: 25px;
-  padding-bottom: 25px;
-  color: #fff; }

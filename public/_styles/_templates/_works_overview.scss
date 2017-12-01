@@ -1,0 +1,178 @@
+/* =========================================================================
+    Commercial Works Overview
+========================================================================= */
+
+
+.comml-works-grid-item{
+	
+}
+
+
+.comml-work-card{
+	
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	
+	html.mod-no-mobile &{
+		
+
+		.comml-work-card-image-wrapper{
+			
+			@include transition(transform 400ms);
+		}
+
+		.comml-work-card-details{
+			
+			@include transition(opacity 400ms);
+
+		}
+		
+		
+		&:hover{
+			
+			.comml-work-card-image-wrapper{
+				@include transform(scale(1.2));
+			}
+	
+			.comml-work-card-details{
+				opacity: 1;
+			}
+		
+		}
+
+
+	}
+	
+	
+}
+
+
+
+.comml-work-card-image-wrapper{
+	@include transform(scale(1.01));
+}
+
+.comml-work-card-image{
+	
+}
+
+.comml-work-card-details{
+	opacity: 0;
+	@include overlay(absolute);
+
+	
+}
+
+
+.comml-work-card-title{
+	font-size: 2.5rem;
+	text-align: center;
+}
+
+
+
+
+
+/* =========================================================================
+    Indie Works Overview
+========================================================================= */
+
+
+.indie-works-grid-item{
+	
+	
+}
+
+
+.indie-work-card{
+	
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	
+	
+	html.mod-no-mobile &{
+		
+
+		.indie-work-card-image-wrapper{
+			
+			@include transition(transform 400ms);
+		}
+
+		.indie-work-card-details{
+			
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;	
+			
+			@include transition(transform 400ms);
+			
+			@include transform(translateY(100%));
+		}
+		
+		
+		&:hover{
+			
+			.indie-work-card-image-wrapper{
+				@include transform(translateY(-10%));
+			}
+	
+			.indie-work-card-details{
+				@include transform(translateY(0));
+			}
+		
+		}
+
+
+	}
+	
+	
+}
+
+
+
+.indie-work-card-details{
+	
+	text-align: right;
+	
+}
+
+.indie-work-card-title{
+	padding: 20px 20px 5px;
+	font-size: 2.5rem;
+}
+
+
+.indie-work-card-category{
+	padding: 5px 20px 20px;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+
+
+.loading-work-stage{
+	
+	display: none;
+	opacity: 0;
+
+	@include overlay(fixed);
+	
+	overflow: auto;
+	
+	background-color: rgba( #000, .9 );
+	
+}
+
+
+
+

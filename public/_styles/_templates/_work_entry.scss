@@ -1,0 +1,212 @@
+
+/* =========================================================================
+    Commercial Work
+========================================================================= */
+
+
+
+
+.comml-work-hero-image{
+	
+	@include overlay(fixed);
+	
+	z-index: -1;
+	
+	background-repeat: no-repeat;
+	
+	background-position: center top;
+
+	background-size: cover;
+
+	
+}
+
+
+
+.comml-work-main{
+	border: 1px solid red;
+	margin-top: calc(100vh - 200px);
+}
+
+.comml-work-text-section{
+	padding: 0 15px;
+}
+
+
+.comml-work-video-section{
+	
+}
+
+
+.comml-work-gallery-section{
+	
+}
+
+
+.comml-work-gallery-col{
+// 	padding: 5px;
+}
+
+
+
+
+
+
+/* =========================================================================
+    Indie Work
+========================================================================= */
+
+
+.indie-work-container{
+	background-color: #000;
+}
+
+
+.indie-work{
+	position: relative;
+}
+
+.indie-work-video-wrapper{
+	height: 100vh;
+}
+
+.indie-work-video{
+	width: 1000px;
+	margin: auto;
+}
+
+
+
+.indie-work-single-image{
+	
+	height: 100vh;
+	
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+}
+
+
+.indie-work-gallery-wrapper{
+	
+	max-width: 600px;
+	margin: auto;
+	
+}
+
+.indie-work-description{
+	
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	
+	width: 300px;
+	padding-left: 25px;
+	padding-bottom: 25px;
+	
+	color: #fff;
+	
+}
+
+
+
+
+
+
+.work{
+
+}
+
+.work-close{
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	
+	color: #fff;
+	font-size: 45px;
+	text-align: center;
+
+	cursor: pointer;
+
+	@include transition(transform 800ms cubic-bezier(.27,1.64,.32,.95));
+
+
+	html.mod-no-mobile &:hover{
+
+		@include transform(rotate(90deg));
+
+	}
+
+
+}
+
+
+.work-nav-bar{
+
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 80px;
+	overflow: hidden;
+
+}
+
+.work-nav-prev-bar{
+
+	left: 0;
+
+}
+
+.work-nav-next-bar{
+
+	right: 0;
+
+}
+
+
+.work-nav{
+
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	@include transform(translateY(-50%));
+
+	height: 80px;
+	line-height: 80px;
+	
+	color: #fff;
+	font-size: 4rem;
+	text-align: center;
+
+	@include transition(transform 400ms);
+
+}
+
+
+.work-nav-prev{
+	html.mod-no-mobile &:hover{
+		@include transform(translateY(-50%) translateX(-10%));
+	}
+
+}
+
+.work-nav-next{
+	html.mod-no-mobile &:hover{
+		@include transform(translateY(-50%) translateX(10%));
+	}
+}
+
+
+
+
+
+
+
+
+

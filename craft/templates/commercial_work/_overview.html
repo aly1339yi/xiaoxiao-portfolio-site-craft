@@ -1,13 +1,78 @@
 {% extends "/_layout.html" %}
 
 
-{% set body_class = "" %}
+{% set body_class = "template-comml-works-overview template-works-overview" %}
 
 {% block main %}
 
 
 
-<div class="">commercial</div>
+<div class="comml-works-overview-container">
+
+
+	{# COMMERCIAL WORKS GRID #}
+
+	<div class="comml-works-grid grid">
+	
+		{% for entry in craft.entries.section('commercialWorksSection') %}
+	
+		<div class="comml-works-grid-item grid-item one-half medium-up-one-third">
+		
+			
+	        <div class="comml-work-card work-card js-load-work" data-work-url="{{ entry.url }}">
+	        	
+	        	
+	        	{% set imageSrc = entry.workCardImage.first().url %}
+	        	
+	        	<div class="comml-work-card-image-wrapper">
+	                <img class="comml-work-card-image block-fullwidth" src="{{ imageSrc }}">                  
+	        	</div>
+	        	
+	        	
+	        	{% set colorHex = entry.commlWorkCardBkgColor %}
+	        	
+	        	{% set hueColor = craft.hue.createColorFromHex(colorHex) %}
+	        	
+	        	{% set colorRGB = hueColor.rgb %}
+	        	
+	     
+	        	{% set colorAlpha = entry.commlWorkCardBkgOpacity %}
+	        	
+	        	
+	        	
+				<div class="comml-work-card-details" style="background-color: rgba({{ colorRGB }},{{ colorAlpha }});">
+				
+					<div class="display-table">
+					<div class="display-table-cell">
+				
+					<div class="comml-work-card-title" style="color:{{ entry.commlWorkCardFontColor }};">{{ entry.commlWorkClient }}</div>
+					
+					
+					</div>
+					</div>
+					
+					
+				</div>
+				
+	        </div> 		
+		
+		
+		</div>
+	
+		{% endfor %}
+		
+	
+	</div>
+
+	{# END COMMERCIAL WORKS GRID #}
+
+
+
+
+</div>
+
+
+
 
 
 {% endblock main %}

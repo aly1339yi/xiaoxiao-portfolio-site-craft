@@ -1,0 +1,120 @@
+{% extends "/_layout.html" %}
+
+
+{% set body_class = "template-indie-work template-work" %}
+
+{% block main %}
+
+
+
+<div class="comml-work-container">
+
+
+	<div id="work" class="comml-work work">
+
+
+
+		<div class="comml-work-hero-section">
+		
+			{% set imageSrc = entry.commlWorkHeroImage.first().url %}
+		
+			<div class="comml-work-hero-image" style="background-image: url({{ imageSrc }});"></div>
+		
+		</div>
+
+
+		<div class="comml-work-main">
+		
+		
+	    	
+	    	{% set colorHex = entry.commlWorkTextBkgColor %}
+	    	
+	    	{% set hueColor = craft.hue.createColorFromHex(colorHex) %}
+	    	
+	    	{% set colorRGB = hueColor.rgb %}
+	    	
+	 
+	    	{% set colorAlpha = entry.commlWorkTextBkgOpacity %}
+	        	
+		
+		
+		
+		
+			<div class="comml-work-text-section">
+			
+				<div class="comml-work-text" style="background-color: rgba({{ colorRGB }},{{ colorAlpha }});">
+				
+				
+				
+				</div>
+			</div>
+		
+			<div class="comml-work-video-section">
+				
+				{% set video = entry.workVideo %}
+				
+				{% set videoWidth = video.width %}
+				{% set videoHeight = video.height %}
+				
+				{% set videoEmbed = video.embed({ 
+					width: videoWidth,
+					height: videoHeight
+				}) %}
+				
+				<div class="comml-work-video fitvids">{{ videoEmbed }}</div>
+			
+			
+			</div>
+			
+			
+			<div class="comml-work-gallery-section">
+		
+			
+				
+				{% for row in entry.commlWorkStillFrames %}
+				
+				
+				<div class="comml-work-gallery-row row">
+				
+					
+					{% for image in row.gallery %}
+					
+					
+					<div class="comml-work-gallery-col col" style="width: {{ 100 / loop.length }}%;">
+	
+						<div class="comml-work-gallery-image-wrapper">
+						
+							<img src="{{image.url}}" class="comml-work-gallery-image block-fullwidth">
+						</div>
+					
+					</div>
+	
+					{% endfor %}
+				
+				</div>
+				
+				
+				{% endfor %}		
+			
+			
+			
+			</div>
+			
+			
+			
+		</div>
+
+
+
+
+
+	</div>
+
+
+</div>
+
+
+
+
+
+{% endblock main %}

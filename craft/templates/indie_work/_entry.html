@@ -1,62 +1,73 @@
 {% extends "/_layout.html" %}
 
 
-{% set body_class = "template-indie-works-page" %}
+{% set body_class = "template-indie-work template-work" %}
 
 {% block main %}
 
 
-{% set gallery_length = entry.workGallery|length %}
+{% set gallery_length = entry.indieWorkGallery|length %}
 
 {% set has_video = entry.workVideo is not empty %}
 
 
-<div class="indie-single-work-page-container">
+<div class="indie-work-container">
 
 
 	{# INDIE SINGLE WORK #}
 
-	<div id="work" class="indie-single-work work">
+	<div id="work" class="indie-work work">
 
 		{# MEDIA #}
 
-		<div class="indie-single-work-media work-media">
+		<div class="indie-work-media work-media">
 
 		{% if has_video %}
 
 			{% if gallery_length >0 %}
 
-				<div class="indie-single-work-gallery-wrapper">
+				<div class="indie-work-gallery-wrapper">
 
-					{% for image in entry.workGallery %}
+					{% for image in entry.indieWorkGallery %}
 
-						<div class="indie-single-work-gallery-image-wrapper">
-							<img src="{{image.url}}" class="indie-single-work-gallery-image block-fullwidth">
+						<div class="indie-work-gallery-image-wrapper">
+							<img src="{{image.url}}" class="indie-work-gallery-image block-fullwidth">
 						</div>
 
 					{% endfor %}
 
 				</div>
 
-				<div class="indie-single-work-video">
+				<div class="indie-work-video">
 
-					<div class="indie-single-work-video fitvids">{{ entry.workVideo.embed() }}</div>
+					<div class="indie-work-video fitvids">{{ entry.workVideo.embed() }}</div>
 
 				</div>
 
 			{% else %}
 
 
-				<div class="indie-single-work-video-wrapper">
+				<div class="indie-work-video-wrapper">
 
 					<div class="display-table">
 					<div class="display-table-cell">
 
-						<div class="indie-single-work-video">
 
-							<div class="indie-single-work-video fitvids">{{ entry.workVideo.embed() }}</div>
+					{% set video = entry.workVideo %}
+					
+					{% set videoWidth = video.width %}
+					{% set videoHeight = video.height %}
+					
+					{% set videoEmbed = video.embed({ 
+						width: videoWidth,
+						height: videoHeight
+					}) %}
+					
+				
+					<div class="indie-work-video fitvids">{{ videoEmbed }}</div>
 
-						</div>
+
+
 
 					</div>
 					</div>
@@ -70,18 +81,18 @@
 		{% elseif gallery_length == 1 %}
 
 
-			<div class="indie-single-work-single-image" style="background-image: url({{ entry.workGallery.first().url }})"></div>
+			<div class="indie-work-single-image" style="background-image: url({{ entry.indieWorkGallery.first().url }})"></div>
 
 
 		{% else %}
 
 
-			<div class="indie-single-work-gallery-wrapper">
+			<div class="indie-work-gallery-wrapper">
 
-				{% for image in entry.workGallery %}
+				{% for image in entry.indieWorkGallery %}
 
-					<div class="indie-single-work-gallery-image-wrapper">
-						<img src="{{image.url}}" class="indie-single-work-gallery-image block-fullwidth">
+					<div class="indie-work-gallery-image-wrapper">
+						<img src="{{image.url}}" class="indie-work-gallery-image block-fullwidth">
 					</div>
 
 				{% endfor %}
@@ -98,7 +109,7 @@
 
 		{# DESCRIPTION #}
 
-		<div class="indie-single-work-description">{{ entry.workDescription }}</div>
+		<div class="indie-work-description">{{ entry.indieWorkDescription }}</div>
 
 		{# END DESCRIPTION #}
 
@@ -138,20 +149,6 @@
 	<a href="{{ url('indie-works') }}" class="work-close elegant-icon">&#x4d;</a>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
