@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Fri, 01 Dec 2017 06:14:25 +0000 (0.7169s) */
+/* compiled by scssphp v0.1.10 on Sat, 02 Dec 2017 06:03:37 +0000 (1.2075s) */
 
 /* =========================================================================
  Color
@@ -28,6 +28,13 @@
   src: url('/_fonts/gillsansstd.eot') format('embedded-opentype'), url('/_fonts/gillsansstd.woff2') format('woff2'), url('/_fonts/gillsansstd.woff') format('woff'), url('/_fonts/gillsansstd.ttf') format('truetype'), url('/_fonts/gillsansstd.svg#GillSansStdRegular') format('svg');
   font-style: normal;
   font-weight: 400; }
+
+@font-face {
+  font-family: 'GillSansStd';
+  src: url('/_fonts/GillSansStdUltraBold.eot');
+  src: url('/_fonts/GillSansStdUltraBold.eot') format('embedded-opentype'), url('/_fonts/GillSansStdUltraBold.woff2') format('woff2'), url('/_fonts/GillSansStdUltraBold.woff') format('woff'), url('/_fonts/GillSansStdUltraBold.ttf') format('truetype'), url('/_fonts/GillSansStdUltraBold.svg#GillSansStdUltraBold') format('svg');
+  font-style: normal;
+  font-weight: 800; }
 
 @font-face {
   font-family: 'ElegantIcons';
@@ -4369,6 +4376,20 @@ html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
 
 .comml-work-text-section {
   padding: 0 15px; }
+
+.comml-work-text-top {
+  height: 200px; }
+
+.comml-work-text-header {
+  text-transform: capitalize; }
+
+.comml-work-text-list {
+  font-weight: 800;
+  font-size: 1.8rem; }
+
+.comml-work-client {
+  font-weight: 800;
+  font-size: 3.2rem; }
 
 /* =========================================================================
  Indie Work

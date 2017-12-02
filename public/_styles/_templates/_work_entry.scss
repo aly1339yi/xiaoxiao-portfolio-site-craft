@@ -6,6 +6,14 @@
 
 
 
+$comml-work-text-top-height: 200px;
+
+
+
+
+
+// HERO
+
 .comml-work-hero-image{
 	
 	@include overlay(fixed);
@@ -22,21 +30,80 @@
 }
 
 
+// END HERO
+
+
+// MAIN
 
 .comml-work-main{
 	border: 1px solid red;
-	margin-top: calc(100vh - 200px);
+	margin-top: calc(100vh - #{$comml-work-text-top-height});
 }
+
+
+
+// TEXT
 
 .comml-work-text-section{
 	padding: 0 15px;
 }
 
+.comml-work-text-top{
+	height: $comml-work-text-top-height;
+}
+
+.comml-work-text-bottom{
+	
+}
+
+
+
+.comml-work-text-header{
+	text-transform: capitalize;	
+}
+
+.comml-work-text-list{
+	font-weight: 800; 
+	font-size: 1.8rem;
+}
+
+
+
+
+
+
+
+
+
+// CLIENT
+
+
+.comml-work-client{
+	font-weight: 800; 
+	font-size: 3.2rem;
+}
+
+
+// END CLIENT
+
+
+
+
+
+
+// END TEXT
+
+
+// VIDEO
 
 .comml-work-video-section{
 	
 }
 
+
+// END VIDEO
+
+// GALLERY
 
 .comml-work-gallery-section{
 	
@@ -47,10 +114,10 @@
 // 	padding: 5px;
 }
 
+// END GALLERY
 
 
-
-
+// END MAIN
 
 /* =========================================================================
     Indie Work

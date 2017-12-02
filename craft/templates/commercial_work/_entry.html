@@ -13,41 +13,193 @@
 	<div id="work" class="comml-work work">
 
 
+		{# HERO SECTION #}
+
 
 		<div class="comml-work-hero-section">
 		
 			{% set imageSrc = entry.commlWorkHeroImage.first().url %}
 		
 			<div class="comml-work-hero-image" style="background-image: url({{ imageSrc }});"></div>
+			
+			<div></div>
 		
 		</div>
 
+		{# END HERO SECTION #}
+		
+		
+		{# MAIN #}
 
 		<div class="comml-work-main">
+				
 		
-		
+			{# TEXT SECTION #}
+			
+			
+	    	{% set textBkgColorHex = entry.commlWorkTextBkgColor %}
 	    	
-	    	{% set colorHex = entry.commlWorkTextBkgColor %}
+	    	{% set hueTextBkgColor = craft.hue.createColorFromHex(textBkgColorHex) %}
 	    	
-	    	{% set hueColor = craft.hue.createColorFromHex(colorHex) %}
-	    	
-	    	{% set colorRGB = hueColor.rgb %}
+	    	{% set textBkgColorRGB = hueTextBkgColor.rgb %}
 	    	
 	 
-	    	{% set colorAlpha = entry.commlWorkTextBkgOpacity %}
-	        	
-		
-		
-		
-		
+	    	{% set textBkgColorAlpha = entry.commlWorkTextBkgOpacity %}
+	    	
+	    	
+	    	{% set headerColor = entry.commlWorkHeaderColor %}
+	    	
+	    	{% set listColor = entry.commlWorkListColor %}
+			
+			
 			<div class="comml-work-text-section">
 			
-				<div class="comml-work-text" style="background-color: rgba({{ colorRGB }},{{ colorAlpha }});">
+				<div class="comml-work-text">
 				
+					{# TEXT TOP #}
+				
+					<div class="comml-work-text-top" style="background-color: rgba({{ textBkgColorRGB }},{{ textBkgColorAlpha }});">
+					
+						<div class="comml-work-text-row row">
+						
+							<div class="comml-work-text-col col">
+							
+							
+								{# ROLE #}
+	
+								
+								{% set roles = entry.commlWorkRoles %}
+								
+								{% set roleLength = roles | length %}
+								
+								{% set roleHeader = roleLength < 2 ? 'role':'roles' %}
+								
+							
+								<div class="comml-work-text-header" style="color:{{ headerColor }};">{{ roleHeader }}</div>
+								
+								<ul class="comml-work-text-list" style="color:{{ listColor }};">
+								
+									{% for block in roles %}
+									
+									<li>{{ block.role }}</li>
+
+									{% endfor %}
+								
+								</ul>
+
+								
+								{# END ROLE #}
+								
+							
+							</div>
+							
+							<div class="comml-work-text-col col">
+							
+								{# CLIENT #}
+								
+								<div class="comml-work-text-header" style="color:{{ headerColor }};">client</div>
+								
+								{% set clientColor = entry.commlWorkClientColor %}
+								{% set projectColor = entry.commlWorkProjectColor %}
+								
+								<div class="comml-work-client" style="color:{{ clientColor }};">{{ entry.commlWorkClient }}</div>
+								<div class="comml-work-project" style="color:{{ projectColor }};">{{ entry.commlWorkProject }}</div>
+															
+								{# END CLIENT #}
+								
+								
+								
+							</div>
+							
+						
+												
+						</div>
+						
+					</div>
+					
+					{# END TEXT TOP #}
+				
+				
+					{# TEXT BOTTOM #}
+				
+				
+			    	
+					<div class="comml-work-text-bottom" style="background-color: {{ textBkgColorHex }};">
+					
+						<div class="comml-work-text-row row">
+						
+							<div class="comml-work-text-col col">
+							
+								{# SKILL #}
+							
+								{% set skills = entry.commlWorkSkills %}
+								
+								{% set skillLength = skills | length %}
+								
+								{% set skillHeader = skillLength < 2 ? 'skill':'skills' %}
+							
+								<div class="comml-work-text-header" style="color:{{ headerColor }};">{{ skillHeader }}</div>
+								
+								<ul class="comml-work-text-list" style="color:{{ listColor }};">
+								
+									{% for block in skills %}
+									
+									<li>{{ block.skill }}</li>
+
+									{% endfor %}
+								
+								</ul>
+
+								{# END SKILL #}
+								
+							</div>
+							
+							<div class="comml-work-text-col col">
+							
+								{# DESC #}
+								
+								<div class="comml-work-text-header">description</div>
+								
+								
+								{% set descColor = entry.commlWorkDescriptionColor %}
+								
+								{% set infoColor = entry.commlWorkInfoColor %}
+								
+								<div class="comml-work-desc" style="color:{{ descColor }};">{{ entry.commlWorkDescription }}</div>
+								
+								<div class="comml-work-info" style="color:{{ infoColor }};">{{ entry.commlWorkInfo }}</div>
+								
+								
+								{# END DESC #}
+							
+							</div>
+											
+						</div>
+					
+					</div>	
+					
+					
+					{# END TEXT BOTTOM #}			
 				
 				
 				</div>
+				
+				
+				
+				
+				
+				
+				
 			</div>
+			
+			
+			{# END TEXT SECTION #}
+			
+			
+		
+			{# VIDEO SECTION #}
+		
+		
 		
 			<div class="comml-work-video-section">
 				
@@ -65,6 +217,11 @@
 			
 			
 			</div>
+			
+			{# END VIDEO SECTION #}
+			
+			
+			{# GALLERY SECTION #}
 			
 			
 			<div class="comml-work-gallery-section">
@@ -100,11 +257,13 @@
 			
 			</div>
 			
+			{# END GALLERY SECTION #}
+			
 			
 			
 		</div>
 
-
+		{# END MAIN #}
 
 
 

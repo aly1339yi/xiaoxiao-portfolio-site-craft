@@ -39,13 +39,15 @@
 	        	{% set colorAlpha = entry.commlWorkCardBkgOpacity %}
 	        	
 	        	
+	        	{% set fontColor = entry.commlWorkCardFontColor %}
+	        	
 	        	
 				<div class="comml-work-card-details" style="background-color: rgba({{ colorRGB }},{{ colorAlpha }});">
 				
 					<div class="display-table">
 					<div class="display-table-cell">
 				
-					<div class="comml-work-card-title" style="color:{{ entry.commlWorkCardFontColor }};">{{ entry.commlWorkClient }}</div>
+					<div class="comml-work-card-title" style="color:{{ fontColor }};">{{ entry.commlWorkClient }}</div>
 					
 					
 					</div>
