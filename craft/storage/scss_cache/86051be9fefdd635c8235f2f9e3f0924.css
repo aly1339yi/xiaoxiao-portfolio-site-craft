@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Sat, 02 Dec 2017 06:03:37 +0000 (1.2075s) */
+/* compiled by scssphp v0.1.10 on Sun, 03 Dec 2017 03:16:42 +0000 (0.7892s) */
 
 /* =========================================================================
  Color
@@ -31,10 +31,24 @@
 
 @font-face {
   font-family: 'GillSansStd';
+  src: url('/_fonts/GillSansStdBold.eot');
+  src: url('/_fonts/GillSansStdBold.eot') format('embedded-opentype'), url('/_fonts/GillSansStdBold.woff2') format('woff2'), url('/_fonts/GillSansStdBold.woff') format('woff'), url('/_fonts/GillSansStdBold.ttf') format('truetype'), url('/_fonts/GillSansStdBold.svg#GillSansStdBold') format('svg');
+  font-style: normal;
+  font-weight: 700; }
+
+@font-face {
+  font-family: 'GillSansStd';
+  src: url('/_fonts/GillSansStdExtraBold.eot');
+  src: url('/_fonts/GillSansStdExtraBold.eot') format('embedded-opentype'), url('/_fonts/GillSansStdExtraBold.woff2') format('woff2'), url('/_fonts/GillSansStdExtraBold.woff') format('woff'), url('/_fonts/GillSansStdExtraBold.ttf') format('truetype'), url('/_fonts/GillSansStdExtraBold.svg#GillSansStdExtraBold') format('svg');
+  font-style: normal;
+  font-weight: 800; }
+
+@font-face {
+  font-family: 'GillSansStd';
   src: url('/_fonts/GillSansStdUltraBold.eot');
   src: url('/_fonts/GillSansStdUltraBold.eot') format('embedded-opentype'), url('/_fonts/GillSansStdUltraBold.woff2') format('woff2'), url('/_fonts/GillSansStdUltraBold.woff') format('woff'), url('/_fonts/GillSansStdUltraBold.ttf') format('truetype'), url('/_fonts/GillSansStdUltraBold.svg#GillSansStdUltraBold') format('svg');
   font-style: normal;
-  font-weight: 800; }
+  font-weight: 900; }
 
 @font-face {
   font-family: 'ElegantIcons';
@@ -4248,8 +4262,7 @@ body {
   font-family: 'GillSansStd';
   font-style: normal;
   font-weight: 300;
-  font-size: 1.4rem;
-  letter-spacing: 0.02em; }
+  font-size: 1.4rem; }
 
 /* =========================================================================
  Commercial Works Overview
@@ -4290,10 +4303,12 @@ html.mod-no-mobile .comml-work-card .comml-work-card-image-wrapper {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; }
+  bottom: 0;
+  padding: 0 15px; }
 
 .comml-work-card-title {
-  font-size: 2.5rem;
+  font-weight: 900;
+  font-size: 2rem;
   text-align: center; }
 /* =========================================================================
  Indie Works Overview
@@ -4359,37 +4374,115 @@ html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
 /* =========================================================================
  Commercial Work
  ========================================================================= */
-.comml-work-hero-image {
+.comml-work-hero-section {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  z-index: -1;
+  z-index: -1; }
+
+.comml-work-hero {
+  position: relative; }
+
+.comml-work-hero-image {
+  height: 100vh;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover; }
 
+.comml-work-hero-image-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh; }
+
+.comml-work-hero-color {
+  height: 100vh; }
+
 .comml-work-main {
-  border: 1px solid red;
   margin-top: calc(100vh - 200px); }
 
 .comml-work-text-section {
   padding: 0 15px; }
 
 .comml-work-text-top {
+  position: relative;
+  padding: 30px 0;
   height: 200px; }
 
+.comml-work-text-bottom {
+  padding: 0 0 60px; }
+
+.comml-work-text-row {
+  height: 100%; }
+
+.comml-work-text-col {
+  height: 100%;
+  padding: 0 30px; }
+
+.comml-work-text-col:first-child {
+  width: 25%; }
+
+.comml-work-text-col:last-child {
+  width: 75%; }
+
 .comml-work-text-header {
-  text-transform: capitalize; }
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  /*
+   &.comml-work-client-header{
+   &:after{
+   content: '';
+   display: inline-block;
+   vertical-align: middle;
+   margin-left: 5px;
+   width: 50px;
+   height: 1px;
+   }
+   }
+   */ }
 
 .comml-work-text-list {
-  font-weight: 800;
+  margin-top: 2px;
+  font-weight: 900;
   font-size: 1.8rem; }
 
+.comml-work-text-list li {
+  line-height: 1.1; }
+
+.comml-work-title {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
 .comml-work-client {
-  font-weight: 800;
+  line-height: 1.2;
+  font-weight: 900;
   font-size: 3.2rem; }
+
+.comml-work-project {
+  line-height: 1;
+  font-weight: 900;
+  font-size: 3.2rem; }
+
+.comml-work-desc {
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1.2; }
+
+.comml-work-info {
+  font-size: 1.6rem; }
+
+.comml-work-info strong {
+  font-weight: 400; }
 
 /* =========================================================================
  Indie Work

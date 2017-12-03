@@ -1,10 +1,10 @@
 {% extends "/_layout.html" %}
 
+{% set body_class = "template-comml-work template-work" %}
 
-{% set body_class = "template-indie-work template-work" %}
+
 
 {% block main %}
-
 
 
 <div class="comml-work-container">
@@ -14,15 +14,46 @@
 
 
 		{# HERO SECTION #}
-
-
-		<div class="comml-work-hero-section">
 		
-			{% set imageSrc = entry.commlWorkHeroImage.first().url %}
+		<div class="comml-work-hero-section"
+		data-bottom="transform:translateY(0px);"
+		data-top="transform:translateY(-300px);"
+		data-anchor-target=".comml-work-text-top"
+		>
 		
-			<div class="comml-work-hero-image" style="background-image: url({{ imageSrc }});"></div>
+			<div class="comml-work-hero">
+		
+				{% set imageSrc = entry.commlWorkHeroImage.first().url %}
 			
-			<div></div>
+				<div class="comml-work-hero-image" style="background-image: url({{ imageSrc }});"></div>
+			
+			
+				{% set heroBkgColorHex = entry.commlWorkHeroBkgColor %}
+				
+				{% set hueHeroBkgColor = craft.hue.createColorFromHex(heroBkgColorHex) %}
+				
+				{% set heroBkgColorRGB = hueHeroBkgColor.rgb %}
+			
+				<div class="comml-work-hero-image-cover"
+				data-bottom="background-color: rgba({{ heroBkgColorRGB }},0);"
+				data-top="background-color: rgba({{ heroBkgColorRGB }},1);"
+				data-anchor-target=".comml-work-text-top"
+				></div>
+
+
+				<div class="comml-work-hero-color"></div>
+
+				<style type="text/css">	
+					
+					.comml-work-hero-color{
+						
+						background-color: {{ heroBkgColorHex }};
+							
+					}
+					
+				</style>
+		
+			</div>
 		
 		</div>
 
@@ -36,20 +67,27 @@
 		
 			{# TEXT SECTION #}
 			
+			<style type="text/css">
 			
-	    	{% set textBkgColorHex = entry.commlWorkTextBkgColor %}
-	    	
-	    	{% set hueTextBkgColor = craft.hue.createColorFromHex(textBkgColorHex) %}
-	    	
-	    	{% set textBkgColorRGB = hueTextBkgColor.rgb %}
-	    	
-	 
-	    	{% set textBkgColorAlpha = entry.commlWorkTextBkgOpacity %}
-	    	
-	    	
-	    	{% set headerColor = entry.commlWorkHeaderColor %}
-	    	
-	    	{% set listColor = entry.commlWorkListColor %}
+				{% set textBkgColorHex = entry.commlWorkTextBkgColor %}
+				
+				{% set hueTextBkgColor = craft.hue.createColorFromHex(textBkgColorHex) %}
+				
+				{% set textBkgColorRGB = hueTextBkgColor.rgb %}
+				
+				{% set textBkgColorAlpha = entry.commlWorkTextBkgOpacity %}
+				
+				
+				{% set heroBkgcolorHex = entry.commlWorkHeroBkgColor %}
+				
+				
+				.comml-work-text{
+					
+					background-color: rgba({{ textBkgColorRGB }},{{ textBkgColorAlpha }});
+						
+				}
+				
+			</style>
 			
 			
 			<div class="comml-work-text-section">
@@ -58,7 +96,7 @@
 				
 					{# TEXT TOP #}
 				
-					<div class="comml-work-text-top" style="background-color: rgba({{ textBkgColorRGB }},{{ textBkgColorAlpha }});">
+					<div class="comml-work-text-top">
 					
 						<div class="comml-work-text-row row">
 						
@@ -66,7 +104,7 @@
 							
 							
 								{# ROLE #}
-	
+
 								
 								{% set roles = entry.commlWorkRoles %}
 								
@@ -74,10 +112,11 @@
 								
 								{% set roleHeader = roleLength < 2 ? 'role':'roles' %}
 								
-							
-								<div class="comml-work-text-header" style="color:{{ headerColor }};">{{ roleHeader }}</div>
 								
-								<ul class="comml-work-text-list" style="color:{{ listColor }};">
+							
+								<div class="comml-work-text-header">{{ roleHeader }}</div>			
+								
+								<ul class="comml-work-text-list">
 								
 									{% for block in roles %}
 									
@@ -86,29 +125,67 @@
 									{% endfor %}
 								
 								</ul>
+								
+								
+								<style type="text/css">
+								
+									{% set headerColor = entry.commlWorkHeaderColor %}
+	
+									{% set listColor = entry.commlWorkListColor %}
+													
+									.comml-work-text-header{
+									    color:{{ headerColor }};
+									}
+												
+									{#
+									    .comml-work-client-header:after{
+										    background-color: {{ headerColor }};
+									    }   
+									#}
 
-								
+								    .comml-work-text-list{
+									    color:{{ listColor }};
+								    }
+								    					
+								</style>
+
 								{# END ROLE #}
-								
-							
+
 							</div>
 							
 							<div class="comml-work-text-col col">
-							
+								<div class="position-relative block-fullheight">
+								
 								{# CLIENT #}
 								
-								<div class="comml-work-text-header" style="color:{{ headerColor }};">client</div>
+								<div class="comml-work-text-header comml-work-client-header">client</div>
 								
-								{% set clientColor = entry.commlWorkClientColor %}
-								{% set projectColor = entry.commlWorkProjectColor %}
+								<div class="comml-work-title">
+									
+									<div class="comml-work-client">{{ entry.commlWorkClient }}</div>
+									<div class="comml-work-project">{{ entry.commlWorkProject }}</div>
+									
+								</div>
 								
-								<div class="comml-work-client" style="color:{{ clientColor }};">{{ entry.commlWorkClient }}</div>
-								<div class="comml-work-project" style="color:{{ projectColor }};">{{ entry.commlWorkProject }}</div>
+								<style type="text/css">
+								
+									{% set clientColor = entry.commlWorkClientColor %}
+									
+									{% set projectColor = entry.commlWorkProjectColor %}
+									
+									.comml-work-client{
+										color:{{ clientColor }};
+									}
+									    
+									.comml-work-project{
+										color:{{ projectColor }};
+									} 
+								
+								</style>
 															
 								{# END CLIENT #}
 								
-								
-								
+								</div>
 							</div>
 							
 						
@@ -121,10 +198,8 @@
 				
 				
 					{# TEXT BOTTOM #}
-				
-				
 			    	
-					<div class="comml-work-text-bottom" style="background-color: {{ textBkgColorHex }};">
+					<div class="comml-work-text-bottom">
 					
 						<div class="comml-work-text-row row">
 						
@@ -138,9 +213,9 @@
 								
 								{% set skillHeader = skillLength < 2 ? 'skill':'skills' %}
 							
-								<div class="comml-work-text-header" style="color:{{ headerColor }};">{{ skillHeader }}</div>
+								<div class="comml-work-text-header">{{ skillHeader }}</div>
 								
-								<ul class="comml-work-text-list" style="color:{{ listColor }};">
+								<ul class="comml-work-text-list">
 								
 									{% for block in skills %}
 									
@@ -158,20 +233,33 @@
 							
 								{# DESC #}
 								
-								<div class="comml-work-text-header">description</div>
+								<div class="comml-work-text-header invisible">description</div>
+
 								
+								<div class="comml-work-desc">{{ entry.commlWorkDescription }}</div>
 								
-								{% set descColor = entry.commlWorkDescriptionColor %}
-								
-								{% set infoColor = entry.commlWorkInfoColor %}
-								
-								<div class="comml-work-desc" style="color:{{ descColor }};">{{ entry.commlWorkDescription }}</div>
-								
-								<div class="comml-work-info" style="color:{{ infoColor }};">{{ entry.commlWorkInfo }}</div>
+								<div class="comml-work-info">{{ entry.commlWorkInfo }}</div>
 								
 								
 								{# END DESC #}
-							
+
+								<style type="text/css">
+								
+									{% set descColor = entry.commlWorkDescriptionColor %}
+									
+									{% set infoColor = entry.commlWorkInfoColor %}
+									
+									
+									.comml-work-desc{
+										color:{{ descColor }};
+									}
+									
+									.comml-work-info{
+										color:{{ infoColor }};
+									}
+						
+								</style>
+								
 							</div>
 											
 						</div>
@@ -183,12 +271,7 @@
 				
 				
 				</div>
-				
-				
-				
-				
-				
-				
+						
 				
 			</div>
 			
@@ -198,7 +281,6 @@
 			
 		
 			{# VIDEO SECTION #}
-		
 		
 		
 			<div class="comml-work-video-section">
@@ -271,7 +353,6 @@
 
 
 </div>
-
 
 
 

@@ -26,6 +26,34 @@
          
 }
 
+@font-face {
+    font-family: 'GillSansStd';
+    src: url('/_fonts/GillSansStdBold.eot');
+    src: url('/_fonts/GillSansStdBold.eot') format('embedded-opentype'),
+         url('/_fonts/GillSansStdBold.woff2') format('woff2'),
+         url('/_fonts/GillSansStdBold.woff') format('woff'),
+         url('/_fonts/GillSansStdBold.ttf') format('truetype'),
+         url('/_fonts/GillSansStdBold.svg#GillSansStdBold') format('svg');
+         
+    font-style: normal;
+    font-weight: 700;  
+         
+}
+
+
+@font-face {
+    font-family: 'GillSansStd';
+    src: url('/_fonts/GillSansStdExtraBold.eot');
+    src: url('/_fonts/GillSansStdExtraBold.eot') format('embedded-opentype'),
+         url('/_fonts/GillSansStdExtraBold.woff2') format('woff2'),
+         url('/_fonts/GillSansStdExtraBold.woff') format('woff'),
+         url('/_fonts/GillSansStdExtraBold.ttf') format('truetype'),
+         url('/_fonts/GillSansStdExtraBold.svg#GillSansStdExtraBold') format('svg');
+         
+    font-style: normal;
+    font-weight: 800;  
+}
+
 
 
 @font-face {
@@ -38,7 +66,7 @@
          url('/_fonts/GillSansStdUltraBold.svg#GillSansStdUltraBold') format('svg');
          
     font-style: normal;
-    font-weight: 800;    
+    font-weight: 900;    
          
 }
 

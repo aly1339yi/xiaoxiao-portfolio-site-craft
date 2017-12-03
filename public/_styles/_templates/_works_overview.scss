@@ -60,13 +60,15 @@
 .comml-work-card-details{
 	opacity: 0;
 	@include overlay(absolute);
+	padding: 0 15px;
 
 	
 }
 
 
 .comml-work-card-title{
-	font-size: 2.5rem;
+	font-weight: 900;
+	font-size: 2rem;
 	text-align: center;
 }
 

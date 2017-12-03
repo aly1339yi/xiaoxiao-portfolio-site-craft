@@ -14,19 +14,41 @@ $comml-work-text-top-height: 200px;
 
 // HERO
 
+.comml-work-hero-section{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+}
+
+.comml-work-hero{
+	position: relative;
+}
+
 .comml-work-hero-image{
 	
-	@include overlay(fixed);
-	
-	z-index: -1;
+	height: 100vh;
 	
 	background-repeat: no-repeat;
-	
 	background-position: center top;
-
 	background-size: cover;
-
 	
+}
+
+
+.comml-work-hero-image-cover{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	
+	height: 100vh;
+	
+}
+
+.comml-work-hero-color{
+	height: 100vh;
 }
 
 
@@ -36,7 +58,7 @@ $comml-work-text-top-height: 200px;
 // MAIN
 
 .comml-work-main{
-	border: 1px solid red;
+
 	margin-top: calc(100vh - #{$comml-work-text-top-height});
 }
 
@@ -49,49 +71,119 @@ $comml-work-text-top-height: 200px;
 }
 
 .comml-work-text-top{
+// 	border: 1px solid red;
+	
+	position: relative;
+	padding: 30px 0;
 	height: $comml-work-text-top-height;
 }
 
 .comml-work-text-bottom{
+	padding: 0 0 60px;
+}
+
+.comml-work-text-row{
+	height: 100%;
+}
+
+.comml-work-text-col{
+	
+	height: 100%;
+	padding: 0 30px;
+	
+	&:first-child{
+		
+		width: percentage(1/4);
+		
+	}
+	
+	&:last-child{
+		
+		width: percentage(3/4);
+		
+	}	
+	
+	
+}
+
+
+.comml-work-text-header{
+	font-size: 1.4rem;
+	font-weight: 400;
+	text-transform: capitalize;
+
+/*
+	&.comml-work-client-header{
+		&:after{
+		    content: '';
+		    display: inline-block;
+		    vertical-align: middle;
+		    margin-left: 5px;
+		    width: 50px;
+		    height: 1px;
+		}
+	}
+	
+*/
+	
+}
+
+.comml-work-text-list{
+    margin-top: 2px;
+    font-weight: 900;
+    font-size: 1.8rem;
+	li{
+		line-height: 1.1;
+	}
+}
+
+
+.comml-work-title{
+	position: absolute;
+	top: 50%;
+	@include transform(translateY(-50%));
+}
+
+.comml-work-client{
+    line-height: 1.2;
+    font-weight: 900;
+    font-size: 3.2rem;
+	
+	
+}
+
+.comml-work-project{
+	
+    line-height: 1;
+    font-weight: 900;
+    font-size: 3.2rem;
+	
 	
 }
 
 
 
-.comml-work-text-header{
-	text-transform: capitalize;	
-}
-
-.comml-work-text-list{
-	font-weight: 800; 
-	font-size: 1.8rem;
-}
-
-
-
-
-
-
-
-
-
-// CLIENT
-
-
-.comml-work-client{
-	font-weight: 800; 
-	font-size: 3.2rem;
+.comml-work-desc{
+	margin-bottom: 40px;
+	font-weight: 700;
+	font-size: 2.4rem;
+	line-height: 1.2;
 }
 
 
-// END CLIENT
+
+.comml-work-info{
+	
+	font-size: 1.6rem;
+	
+	strong{
+		font-weight: 400;	
+	}
+	
+	
+}
 
 
-
-
-
-
-// END TEXT
 
 
 // VIDEO

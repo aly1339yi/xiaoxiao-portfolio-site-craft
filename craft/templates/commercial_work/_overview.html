@@ -19,8 +19,9 @@
 		<div class="comml-works-grid-item grid-item one-half medium-up-one-third">
 		
 			
-	        <div class="comml-work-card work-card js-load-work" data-work-url="{{ entry.url }}">
+	        <div class="comml-work-card work-card">
 	        	
+	        	<a href="{{ entry.url }}">
 	        	
 	        	{% set imageSrc = entry.workCardImage.first().url %}
 	        	
@@ -47,7 +48,7 @@
 					<div class="display-table">
 					<div class="display-table-cell">
 				
-					<div class="comml-work-card-title" style="color:{{ fontColor }};">{{ entry.commlWorkClient }}</div>
+					<div class="comml-work-card-title" style="color:{{ fontColor }};">{{ entry.commlWorkProject }}</div>
 					
 					
 					</div>
@@ -55,6 +56,9 @@
 					
 					
 				</div>
+				
+				
+				</a>
 				
 	        </div> 		
 		
