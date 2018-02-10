@@ -21,8 +21,17 @@
 			
 	        <div class="indie-work-card work-card js-load-work" data-work-url="{{ entry.url }}">
 	        	
+				{% set img_transform = {
+				    mode: 'crop',
+				    width: 960,
+				    quality: 100,
+				} %}
+				
+				{% set imageSrc = entry.workCardImage.first().getUrl(img_transform) %}
+	        	
+	        	
 	        	<div class="indie-work-card-image-wrapper">
-	                <img class="indie-work-card-image block-fullwidth" src="{{ entry.workCardImage.first().url }}">                  
+	                <img class="indie-work-card-image block-fullwidth" src="{{ imageSrc }}">                  
 	        	</div>
 	        	
 				<div class="indie-work-card-details" style="background-color: {{ entry.indieWorkCardBkgColor }}; color: {{ entry.indieWorkFontCardColor }};">

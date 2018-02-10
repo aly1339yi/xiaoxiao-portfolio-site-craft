@@ -23,7 +23,13 @@
 	        	
 	        	<a href="{{ entry.url }}">
 	        	
-	        	{% set imageSrc = entry.workCardImage.first().url %}
+				{% set img_transform = {
+				    mode: 'crop',
+				    width: 960,
+				    quality: 100,
+				} %}
+	        	
+	        	{% set imageSrc = entry.workCardImage.first().getUrl(img_transform) %}
 	        	
 	        	<div class="comml-work-card-image-wrapper">
 	                <img class="comml-work-card-image block-fullwidth" src="{{ imageSrc }}">                  
