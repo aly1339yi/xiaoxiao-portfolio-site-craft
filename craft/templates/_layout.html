@@ -13,9 +13,20 @@
 		<link rel="home" href="{{ siteUrl }}">
         <meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+		
         <link rel="icon" href="">
 
 		<link href="{{ craft.sass.link('/_styles/_app.scss') }}" rel="stylesheet" type="text/css"  media="all">
+		
+		{% filter minimee %}
+
+		<script src="/_scripts/vendor/modernizr-custom.js"></script>
+		<script src="/_scripts/vendor/mobile-detect.js"></script>
+		<script src="/_scripts/vendor/mobile-detect-modernizr.js"></script>
+
+		{% endfilter %}
+		
+		
     </head>
 
     <body class="{% if body_class is defined %}{{ body_class }}{% endif %}">
@@ -27,24 +38,21 @@
 		<main class="main">
 
 			{% block main %}
-
-
-
+			
 			{% endblock main %}
 
 		</main>
-
-
 
 
 		{% filter minimee %}
 
 		<script src="/_scripts/vendor/jquery.min.js"></script>
 		<script src="/_scripts/vendor/jquery.easings.min.js"></script>
+		<script src="/_scripts/vendor/scrolldir.auto.min.js"></script>
 		<script src="/_scripts/vendor/jquery.fitvids.js"></script>
-		<script src="/_scripts/vendor/lodash.custom.min.js"></script>
+		<script src="/_scripts/vendor/lodash.min.js"></script>
 	    <script src="/_scripts/vendor/jquery.waitforimages.js"></script>
-	    <script src="/_scripts/vendor/mousewheelStopPropagation.js"></script>
+		<script src="/_scripts/vendor/mobile-chrome-vh-fix.js"></script>
 	    <script src="/_scripts/vendor/parallax.min.js"></script>
 	    <script src="/_scripts/vendor/skrollr.min.js"></script>
 		

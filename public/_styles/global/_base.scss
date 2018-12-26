@@ -8,9 +8,15 @@
     box-sizing: border-box;
 }
 
-*:not(input):not(textarea)::selection {
-    background-color: transparent;
+// *:not(input):not(textarea)::selection {
+//     background-color: transparent;
+// }
+
+/*
+*::-webkit-scrollbar{
+    display: none;
 }
+*/
 
 html {
     font-size: 10px;
@@ -68,7 +74,7 @@ input,
 textarea{
     @include input-placeholder {
         color: $color-black;
-        text-transform: uppercase;
+        // text-transform: uppercase;
     }
 }
 
@@ -77,21 +83,24 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px #fff inset;
 }
 
-input:focus::-webkit-input-placeholder {
-    color: transparent !important;
-}
+// input:focus::-webkit-input-placeholder {
+//     color: transparent !important;
+// }
 
-input:focus:-moz-placeholder {
-    color: transparent !important;
-}
-/* FF 4-18 */
-input:focus::-moz-placeholder {
-    color: transparent !important;
-}
-/* FF 19+ */
-input:focus:-ms-input-placeholder {
-    color: transparent !important;
-}
+// input:focus:-moz-placeholder {
+//     color: transparent !important;
+// }
+// /* FF 4-18 */
+// input:focus::-moz-placeholder {
+//     color: transparent !important;
+// }
+// /* FF 19+ */
+// input:focus:-ms-input-placeholder {
+//     color: transparent !important;
+// }
+
+
+
 /* IE 10+ */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -163,9 +172,15 @@ ins {
 img,
 object,
 video {
+    // max-width: 100%;
     height: auto;
     vertical-align: middle;
     border: none;
+}
+
+/* Prevents img without src to appear */
+img:not([src]) {
+    visibility: hidden;
 }
 
 iframe {
@@ -177,9 +192,12 @@ hr{
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #000;
+    border-top: 1px solid #ccc;
     margin: 1em 0;
     padding: 0; 
 }
 
+datalist{
+    display: none;
+}
 

@@ -3,11 +3,11 @@
    ========================================================================= */
 
 .position-relative {
-  position: relative;
+    position: relative;
 }
 
 .position-absolute{
-  position: absolute;
+    position: absolute;
 }
 
 
@@ -25,103 +25,100 @@ large-up-display-none-imp
 */
 
 @mixin display-none-imp-class($breakpoint: '') {
-  .#{$breakpoint}-display-none-imp{display:none !important;}
+    .#{$breakpoint}-display-none-imp{display:none !important;}
 }
 
 @each $item in $breakpoint-range {
-  $item-key: nth($item, 1);
-  @include screen($range: $item-key) {
-    @include display-none-imp-class('#{$item-key}');
-  }
+    $item-key: nth($item, 1);
+    @include screen($range: $item-key) {
+        @include display-none-imp-class('#{$item-key}');
+    }
 }
 
 @mixin display-none-class($breakpoint: '') {
-  .#{$breakpoint}-display-none{display:none;}
+    .#{$breakpoint}-display-none{display:none;}
 }
 
 @each $item in $breakpoint-range {
-  $item-key: nth($item, 1);
-  @include screen($range: $item-key) {
-    @include display-none-class('#{$item-key}');
-  }
+    $item-key: nth($item, 1);
+    @include screen($range: $item-key) {
+        @include display-none-class('#{$item-key}');
+    }
 }
+
 
 
 .display-block{
-  display: block;
+    display: block;
 }
 
 .display-block-imp{
-  display: block !important;
+    display: block !important;
 }
 
 .display-inline-block{
-  display: inline-block;
+    display: inline-block;
 }
 
 .display-table {
-  display: table;
-  width: 100%;
-  height: 100%;
+    display: table;
+    width: 100%;
+    height: 100%;
 }
 
 .display-table-cell {
-  display: table-cell;
-  width: 100%;
-  height: 100%;
-  vertical-align: middle;
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .block-fullwidth {
-  display: block;
-  width: 100%;
+    display: block;
+    width: 100%;
 }
 
 .block-fullheight{
-  display: block;
-  height: 100%;
+    display: block;
+    height: 100%;
 }
 
 .height-100vh {
-  height: 100vh;
+    height: 100vh;
 }
 
 
 .display-none-imp{
-  display: none !important;
+    display: none !important;
 }
 
 .display-none{
-  display: none;
+    display: none;
 }
 
 
 .invisible{
-  @include invisible;
-}
-
-.visible{
-  @include visible;
+    @include invisible;
 }
 
 
 .clearfix:after {
-  content: " ";
-  display: block;
-  clear: both;
+    content: " ";
+    display: block;
+    clear: both;
 }
 
 
 .clearboth{
-  clear: both;
+    clear: both;
 }
 
 .float-left{
-  float: left;
+    float: left;
 }
 
 .float-right{
-  float: right;
+    float: right;
 }
 
 
@@ -131,24 +128,24 @@ large-up-display-none-imp
    Typography
    ========================================================================= */
 
-.text-nowrap-ellipsis {
-  @include text-nowrap-ellipsis;
+.text-ellipsis {
+    @include text-ellipsis;
 }
 
 .text-align-center {
-  text-align: center;
+    text-align: center;
 }
 
 .text-align-left {
-  text-align: left;
+    text-align: left;
 }
 
 .text-align-right {
-  text-align: right;
+    text-align: right;
 }
 
 .text-transform-initial{
-  text-transform: initial;
+    text-transform: initial;
 }
 
 
@@ -158,131 +155,128 @@ large-up-display-none-imp
 
 
 .bkg-image-focus-left-top{
-  background-position: left top;
+    background-position: left top;
 }
 
 .bkg-image-focus-left-center{
-  background-position: left center;
+    background-position: left center;
 }
 
 .bkg-image-focus-left-bottom{
-  background-position: left bottom;
+    background-position: left bottom;
 }
 
 
 .bkg-image-focus-center-top{
-  background-position: center top;
+    background-position: center top;
 }
 
 .bkg-image-focus-center-center{
-  background-position: center center;
+    background-position: center center;
 }
 
 .bkg-image-focus-center-bottom{
-  background-position: center bottom;
+    background-position: center bottom;
 }
 
 
 .bkg-image-focus-right-top{
-  background-position: right top;
+    background-position: right top;
 }
 
 .bkg-image-focus-right-center{
-  background-position: right center;
+    background-position: right center;
 }
 
 .bkg-image-focus-right-bottom{
-  background-position: right bottom;
+    background-position: right bottom;
 }
 
 .rsImg-focus-left-top{
-  margin-left: 0 !important;
-  margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
 }
 .rsImg-focus-left-center{
-  margin-left: 0 !important;
+    margin-left: 0 !important;
 }
 .rsImg-focus-left-bottom{
-  margin-left: 0 !important;
-  margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .rsImg-focus-center-top{
-  margin-top: 0 !important;
+    margin-top: 0 !important;
 }
 .rsImg-focus-center-center{
 
 }
 .rsImg-focus-center-bottom{
-  margin-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .rsImg-focus-right-top{
-  margin-right: 0 !important;
-  margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
 }
 .rsImg-focus-right-center{
-  margin-right: 0 !important;
+    margin-right: 0 !important;
 }
 .rsImg-focus-right-bottom{
-  margin-right: 0 !important;
-  margin-bottom: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 
 
 
 .position-left-top{
-  left: 0;
-  top: 0;
+    left: 0;
+    top: 0;
 }
 .position-left-center{
-  left: 0;
-  top: 50%;
-  @include transform(translateY( - 50% ));
+    left: 0;
+    top: 50%;
+    @include transform(translateY( - 50% ));
 }
 .position-left-bottom{
-  left: 0;
-  bottom: 0;
+    left: 0;
+    bottom: 0;
 }
 .position-center-top{
-  left: 50%;
-  top: 0;
-  @include transform(translateX( - 50% ));
-  text-align: center;
+    left: 50%;
+    top: 0;
+    @include transform(translateX( - 50% ));
+    text-align: center;
 }
 
 .position-center-center{
-  left: 50%;
-  top: 50%;
-  @include transform(translateX( - 50% ) translateY( - 50% ));
-  text-align: center;
-
+    left: 50%;
+    top: 50%;
+    @include transform(translateX( - 50% ) translateY( - 50% ));
+    text-align: center;
 }
 
 .position-center-bottom{
-  left: 50%;
-  bottom: 0;
-  @include transform(translateX( - 50% ));
-  text-align: center;
+    left: 50%;
+    bottom: 0;
+    @include transform(translateX( - 50% ));
+    text-align: center;
 }
 
 .position-right-top{
-  right: 0;
-  top: 0;
-
+    right: 0;
+    top: 0;
 }
 
 .position-right-center{
-  right: 0;
-  top: 50%;
-  @include transform(translateY( - 50% ));
-
+    right: 0;
+    top: 50%;
+    @include transform(translateY( - 50% ));
 }
 
 .position-right-bottom{
-  right: 0;
-  bottom: 0;
+    right: 0;
+    bottom: 0;
 }
 
 
@@ -290,40 +284,24 @@ large-up-display-none-imp
    Misc
    ========================================================================= */
 
-.hidden-before-images-ready {
-  opacity: 0;
-}
-
 .overflow-hidden {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .vertical-align-middle{
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 .hover-opacity{
-  @include transition(opacity 400ms);
-  @include hover-opacity;
+    @include transition(opacity 300ms);
+    @include hover-opacity;
 }
 
 .cursor-pointer{
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .fill-current-color{
-  fill:currentColor;
+    fill:currentColor;
 }
-
-
-/* ========================================================================
-   Canvas
-   ========================================================================= */
-
-
-.square-canvas{
-  @include ratio(1/1);
-}
-
-
 

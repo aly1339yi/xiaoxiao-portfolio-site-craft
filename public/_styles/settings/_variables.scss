@@ -6,67 +6,22 @@ $color-black   : #000;
 
 $color-white   : #fff;
 
-$color-grey    : #ccc;
+$color-grey    : #808285;
 
 $color-red     : #a30000;
 
-$color-primary : $color-black;
-
+// $color-primary : #880c18;
+$color-primary : #000;
 
 $color: (
 
-    'primary'         $color-black,
+    'primary'         $color-primary,
 
     'warning'         $color-red,
 
     'bullet'          transparent,
 
     'bullet-selected' #000,
-
-    null
-
-);
-
-
-
-/* =========================================================================
-    Font Size (html font-size 10px)
-========================================================================= */
-
-
-$font-size-xx-small : 1.0em;
-
-$font-size-x-small  : 1.2rem;
-
-$font-size-small    : 1.4rem;
-
-$font-size-medium   : 1.6rem;
-
-$font-size-large    : 1.8rem;
-
-$font-size-x-large  : 2.0rem;
-
-$font-size-xx-large : 3.0rem;
-
-
-$font-size-normal   : $font-size-small;
-
-
-$font-size: (
-
-    'body' $font-size-normal,
-
-    'h6'   1.3rem,
-
-    'h5'   1.4rem,
-
-    'h4'   1.8rem,
-
-    'h3'   2.4rem,
-
-    'h2'   3rem,
-
-    'h1'   3rem,
 
     null
 
@@ -128,22 +83,6 @@ $breakpoint: (
 );
 
 
-/* =========================================================================
-    Grid
-========================================================================= */
-
-
-$grid-gutter: (
-
-    'x-small' 5px,
-    'small'   10px,
-    'medium'  30px,
-    'large'   40px,
-    'x-large' 60px,
-
-null
-
-);
 
 
 
@@ -163,6 +102,3 @@ $z-index: (
 
 
 );
-
-
-

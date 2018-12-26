@@ -1,21 +1,373 @@
 
+/* =========================================================================
+    Dropdown
+========================================================================= */
 
 
-.elegant-icon{
-	font-family: 'ElegantIcons';
+.dropdown {
+    position: relative;
 }
 
+.dropdown-toggle{
+
+    cursor: pointer;
+
+}
+
+.dropdown-menu {
+
+    overflow: hidden;
+    @include invisible;
+    @include transition(opacity 300ms, visibility 300ms);
+
+}
+
+.dropdown {
+
+    &.open{
+        .dropdown-toggle {
+
+        }
+
+        .dropdown-menu {
+            @include visible;
+        }
+    }
+
+}
+
+
+
+
+/* =========================================================================
+    Social List
+========================================================================= */
 
 
 .social-list{
+    @include clearfix;
+    li{
+        float: left;
+        a{
+            display: block;
+            padding: 0 8px;
+            font-size: 1.8rem;
 
-	li{
-		float: left;
-		a{
-		    display: block;
-		    padding: 0 5px;
-		    font-family: 'Mono Social Icons Font';
-		    font-size: 30px;
-		}
-	}
+            @include hover-opacity;
+        }
+    }
+
 }
+
+
+/* ========================================================================
+   Canvas
+   ========================================================================= */
+
+.canvas{
+    position: relative;
+    overflow: hidden;
+}
+
+.ratio-1-1{
+    @include ratio( 1 / 1 );
+}
+
+.ratio-3-4{
+    @include ratio( 3 / 4 );
+}
+
+.ratio-2-3{
+    @include ratio( 2 / 3 );
+}
+
+
+.image-over-canvas{
+    @include overlay(absolute);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.video-over-canvas{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    @include transform(translateX(-50%) translateY(-50%));
+}
+
+
+
+
+/* =========================================================================
+    Video
+========================================================================= */
+
+.video-package{
+
+}
+
+.video-package-poster{
+
+    .video-package.active &{
+        display: none;
+    }
+
+}
+
+.video-package-text{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.video-package-cta{
+
+}
+
+
+
+/* =========================================================================
+    Tab
+========================================================================= */
+
+
+.tab{
+
+}
+
+.tab-label{
+    float: left;
+    padding-bottom: 10px;
+    font-size: 1.4rem;
+    color: $color-grey;
+    cursor: pointer;
+
+    & + &{
+        margin-left: 30px;
+    }
+
+    &.active{
+        color: $color-black;
+    }
+}
+
+.tab-content{
+    font-size: 1.4rem;
+    text-transform: initial;
+}
+
+
+
+
+/* =========================================================================
+    Icon
+========================================================================= */
+
+
+.icon{
+
+    vertical-align: middle;
+
+}
+
+
+
+
+
+/* =========================================================================
+    Btn
+========================================================================= */
+
+
+
+.btn{
+
+    height: 36px;
+    line-height: 36px;
+    
+    font-size: 1.6rem;
+    text-align: center;
+
+    cursor: pointer;
+
+    @include screen('small-down') {
+
+    }
+
+
+}
+
+
+.btn-solid{
+
+    background-color: #000;
+    color: #fff;
+
+    html.mod-no-mobile &:not(:disabled) {
+        @include transition(color 300ms, background 300ms);
+        &:hover{
+            background-color: $color-primary;
+            color: #fff;
+        }
+    }
+
+}
+
+.btn-outline{
+    border: 1px solid #000;
+    color: #000;
+
+    html.mod-no-mobile &:not(:disabled) {
+        @include transition(color 300ms, background 300ms);
+        &:hover{
+            background-color: #000;
+            color: #fff;
+        }
+    }
+}
+
+
+.btn-outline-black{
+
+    border: 1px solid #000;
+    color: #000;
+
+    @include hover-opacity;
+
+    // html.mod-no-mobile &:not(:disabled) {
+    //
+    //     &:hover{
+
+    //     }
+    // }
+
+}
+
+.btn-outline-white{
+
+    border: 1px solid #fff;
+    color: #fff;
+
+    @include hover-opacity;
+
+    // html.mod-no-mobile &:not(:disabled) {
+    //
+    //     &:hover{
+
+    //     }
+    // }
+
+}
+
+/* =========================================================================
+    Checkbox
+========================================================================= */
+
+.checkbox-style {
+
+  position: relative;
+
+  label {
+
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #000;
+    background: #fff;
+
+    &:after {
+        @include invisible;
+
+        content: '';
+        width: 9px;
+        height: 5px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        border: 2px solid #000;
+        border-top: none;
+        border-right: none;
+        background: transparent;
+
+        transform: rotate(-45deg);
+    }
+
+  }
+
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+        @include visible;
+    }
+  }
+
+}
+
+
+/* =========================================================================
+    Billboard
+========================================================================= */
+
+
+.billboard{
+
+    height: 100vh;
+
+    min-height: 900px;
+
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+
+
+}
+
+
+
+/* =========================================================================
+    rte
+========================================================================= */
+
+.ta{
+
+    text-transform: initial;
+    line-height: 1.6;
+}
+
+
+.rte{
+
+
+    u,
+    a{
+
+        text-decoration: underline;
+    }
+    a{
+        @include hover-opacity;
+    }
+
+
+}
+
+
+
+/* =========================================================================
+    Overlay
+========================================================================= */
+
+
+.fullscreen-overlay{
+    @include fullscreen-overlay;
+}
+
+
+
+
