@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Sun, 03 Dec 2017 03:16:42 +0000 (0.7892s) */
+/* compiled by scssphp v0.1.10 on Wed, 26 Dec 2018 03:46:01 +0000 (0.5668s) */
 
 /* =========================================================================
  Color
@@ -4494,20 +4494,21 @@ html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
 .indie-work {
   position: relative; }
 
-.indie-work-video-wrapper {
+.indie-work-single-media-cntr {
   height: 100vh; }
 
-.indie-work-video {
-  width: 1000px;
-  margin: auto; }
-
 .indie-work-single-image {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain; }
 
-.indie-work-gallery-wrapper {
+.indie-work-video {
+  max-width: 1000px;
+  margin: auto; }
+
+.indie-work-multiple-media-cntr {
   max-width: 600px;
   margin: auto; }
 

@@ -225,20 +225,14 @@ $comml-work-text-top-height: 200px;
 	position: relative;
 }
 
-.indie-work-video-wrapper{
+.indie-work-single-media-cntr{
 	height: 100vh;
 }
-
-.indie-work-video{
-	width: 1000px;
-	margin: auto;
-}
-
-
 
 .indie-work-single-image{
 	
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -246,8 +240,14 @@ $comml-work-text-top-height: 200px;
 	
 }
 
+.indie-work-video{
+	max-width: 1000px;
+	margin: auto;
+}
 
-.indie-work-gallery-wrapper{
+
+
+.indie-work-multiple-media-cntr{
 	
 	max-width: 600px;
 	margin: auto;

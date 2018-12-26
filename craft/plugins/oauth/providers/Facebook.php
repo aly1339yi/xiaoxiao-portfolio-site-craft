@@ -47,7 +47,7 @@ class Facebook extends BaseProvider
      */
     public function createProvider()
     {
-        $graphApiVersion = 'v2.8';
+        $graphApiVersion = 'v2.12';
 
         if(!empty($this->providerInfos->config['graphApiVersion']))
         {
@@ -82,5 +82,24 @@ class Facebook extends BaseProvider
     public function getScopeDocsUrl()
     {
         return 'https://developers.facebook.com/docs/facebook-login/permissions';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRedirectUri()
+    {
+        $url = parent::getRedirectUri();
+        $parsedUrl = parse_url($url);
+
+        if (isset($parsedUrl['query'])) {
+            parse_str($parsedUrl['query'], $query);
+
+            $query = http_build_query($query);
+
+            return $parsedUrl['scheme'].'://'.$parsedUrl['host'].$parsedUrl['path'].'?'.$query;
+        }
+
+        return $url;
     }
 }

@@ -280,66 +280,86 @@
 			
 			
 		
-			{# VIDEO SECTION #}
-		
-		
-			<div class="comml-work-video-section">
-				
-				{% set video = entry.workVideo %}
-				
-				{% set videoWidth = video.width %}
-				{% set videoHeight = video.height %}
-				
-				{% set videoEmbed = video.embed({ 
-					width: videoWidth,
-					height: videoHeight
-				}) %}
-				
-				<div class="comml-work-video fitvids">{{ videoEmbed }}</div>
+
 			
-			
-			</div>
-			
-			{# END VIDEO SECTION #}
-			
-			
-			{# GALLERY SECTION #}
-			
-			
-			<div class="comml-work-gallery-section">
 		
 			
+			{# MEDIA GRID SECTION #}
+			
+			
+			<div class="comml-work-media-grid">
+			
+				{% for row in entry.workMediaGrid %}
 				
-				{% for row in entry.commlWorkStillFrames %}
+				<div class="comml-work-media-row row">
 				
-				
-				<div class="comml-work-gallery-row row">
-				
+					{% switch row.type %}
 					
-					{% for image in row.gallery %}
-					
-					
-					<div class="comml-work-gallery-col col" style="width: {{ 100 / loop.length }}%;">
-	
-						<div class="comml-work-gallery-image-wrapper">
+					    {% case "gallery" %}
+					    
+						{# GALLERY #}
 						
-							<img src="{{image.url}}" class="comml-work-gallery-image block-fullwidth">
+						{% for image in row.gallery %}
+						
+						<div class="comml-work-gallery-col col" style="width: {{ 100 / loop.length }}%;">
+		
+							<div class="comml-work-gallery-image-wrapper">
+							
+								<img src="{{image.url}}" class="comml-work-gallery-image block-fullwidth">
+							</div>
+						
 						</div>
+		
+						{% endfor %}
+						
+						{# END GALLERY #}
+										
+					    {% case "video" %}
+
+
+						{# VIDEO #}
 					
-					</div>
-	
-					{% endfor %}
+						<div class="comml-work-video-col col one-whole">
+							
+							{% set video = row.video %}
+							
+							{% set videoWidth = video.width %}
+							{% set videoHeight = video.height %}
+							
+							{% set videoEmbed = video.embed({ 
+								width: videoWidth,
+								height: videoHeight
+							}) %}
+							
+							<div class="comml-work-video fitvids">{{ videoEmbed }}</div>
+						
+						
+						</div>
+						
+						{# END VIDEO #}
+
+					
+					{% endswitch %}
+				
 				
 				</div>
-				
-				
-				{% endfor %}		
+			
+				{% endfor %}
+			
 			
 			
 			
 			</div>
 			
-			{# END GALLERY SECTION #}
+			
+			
+			
+			
+			
+			
+			
+			{# END MEDIA GRID SECTION #}
+			
 			
 			
 			

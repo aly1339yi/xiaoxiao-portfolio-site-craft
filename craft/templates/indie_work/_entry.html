@@ -6,9 +6,33 @@
 {% block main %}
 
 
-{% set gallery_length = entry.indieWorkGallery|length %}
+{% set media_matrix = entry.workMediaGrid %}
 
-{% set has_video = entry.workVideo is not empty %}
+
+{% set has_single_media = false %}
+
+{% if media_matrix | length == 1 %}
+
+	{% set single_media = media_matrix | first %}
+
+	{% switch single_media.type %}
+	
+	    {% case "gallery" %}
+	    
+		    {% if single_media.gallery | length == 1 %}
+		    
+		    	{% set has_single_media = true %}
+		    
+		    {% endif %}
+	    	
+	    {% case "video" %}
+
+			{% set has_single_media = true %}
+	
+	{% endswitch %}
+
+{% endif %}
+
 
 
 <div class="indie-work-container">
@@ -22,85 +46,82 @@
 
 		<div class="indie-work-media work-media">
 
-		{% if has_video %}
+			{% if has_single_media %}
 
-			{% if gallery_length >0 %}
-
-				<div class="indie-work-gallery-wrapper">
-
-					{% for image in entry.indieWorkGallery %}
-
-						<div class="indie-work-gallery-image-wrapper">
-							<img src="{{image.url}}" class="indie-work-gallery-image block-fullwidth">
-						</div>
-
-					{% endfor %}
-
-				</div>
-
-				<div class="indie-work-video">
-
-					<div class="indie-work-video fitvids">{{ entry.workVideo.embed() }}</div>
-
-				</div>
-
-			{% else %}
-
-
-				<div class="indie-work-video-wrapper">
-
+			<div class="indie-work-single-media-cntr">
+		
+			{% switch single_media.type %}
+			
+			
+			    {% case "gallery" %}
+			    
+					<div class="indie-work-single-image" style="background-image: url({{ single_media.gallery.first().url }})"></div>
+			    	
+			    {% case "video" %}
+		
+	
 					<div class="display-table">
 					<div class="display-table-cell">
 
+					<div class="indie-work-video fitvids">{{ single_media.video.embed() }}</div>
 
-					{% set video = entry.workVideo %}
-					
-					{% set videoWidth = video.width %}
-					{% set videoHeight = video.height %}
-					
-					{% set videoEmbed = video.embed({ 
-						width: videoWidth,
-						height: videoHeight
-					}) %}
-					
+					</div>
+					</div>
+
+			
+			{% endswitch %}
+		
+			</div>
+		
+			{% else %}
+		
+			<div class="indie-work-multiple-media-cntr">
+			
+			
+				{% for media_block in media_matrix %}
+
+
+				{% switch media_block.type %}
 				
-					<div class="indie-work-video fitvids">{{ videoEmbed }}</div>
-
-
-
-
+				
+				    {% case "gallery" %}
+				    
+					<div class="indie-work-gallery">
+	
+						{% for image in media_block.gallery %}
+	
+							<div class="indie-work-gallery-image-wrapper">
+								<img src="{{image.url}}" class="indie-work-gallery-image block-fullwidth">
+							</div>
+	
+						{% endfor %}
+	
 					</div>
+				    	
+				    {% case "video" %}
+			
+					<div class="indie-work-video">
+	
+						<div class="indie-work-video fitvids">{{ media_block.video.embed() }}</div>
+	
 					</div>
-
-				</div>
-
-
-			{% endif %}
+	
+				
+				{% endswitch %}
 
 
-		{% elseif gallery_length == 1 %}
-
-
-			<div class="indie-work-single-image" style="background-image: url({{ entry.indieWorkGallery.first().url }})"></div>
-
-
-		{% else %}
-
-
-			<div class="indie-work-gallery-wrapper">
-
-				{% for image in entry.indieWorkGallery %}
-
-					<div class="indie-work-gallery-image-wrapper">
-						<img src="{{image.url}}" class="indie-work-gallery-image block-fullwidth">
-					</div>
 
 				{% endfor %}
-
+			
+			
+			
+			
+			
 			</div>
-
-
+		
+	
 		{% endif %}
+
 
 		</div>
 
