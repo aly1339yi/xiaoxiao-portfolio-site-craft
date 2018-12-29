@@ -21,29 +21,31 @@
 
 @mixin screen($range:null, $min:null, $max:null) {
 
-  @if ($range){
-  @media only screen and #{list-get($breakpoint-range, $range)}{
-    @content;
-  }
-  }
-
-  @else{
-  $query: "only screen and all" !default;
-
-  @if $min and $max {
-    $query: "only screen and (min-width: #{$min}) and (max-width: #{$max})";
-  }
-  @else if $min {
-    $query: "only screen and (min-width: #{$min})"; 
-  }
-  @else if $max {
-    $query: "only screen and (max-width: #{$max})";  
-  }
-  @media #{$query} { 
-    @content;
-  }
-
-  }
+	@if ($range){
+	
+		$query: "only screen and #{list-get($breakpoint-range, $range)}"; 
+	
+	}
+	
+	@else{
+		
+		$query: "only screen and all" !default;
+		
+		@if $min and $max {
+		$query: "only screen and (min-width: #{$min}) and (max-width: #{$max})";
+		}
+		@else if $min {
+		$query: "only screen and (min-width: #{$min})"; 
+		}
+		@else if $max {
+		$query: "only screen and (max-width: #{$max})";  
+		}
+	
+	}
+	
+	@media #{$query} { 
+		@content;
+	}
 
 }
 

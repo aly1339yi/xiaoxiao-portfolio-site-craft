@@ -284,6 +284,10 @@ large-up-display-none-imp
    Misc
    ========================================================================= */
 
+.hidden-before-images-ready{
+	opacity: 0;
+}
+
 .overflow-hidden {
     overflow: hidden;
 }

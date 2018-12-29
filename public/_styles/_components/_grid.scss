@@ -2,48 +2,35 @@
   Grid Basic
 ========================================================================= */
 
-.grid{
+.grid,
+.row
+{
 
-	@include clearfix();
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
 
-
+  html.mod-no-flexbox &{
+    @include clearfix();
+  }
 
 }
 
-.grid-item {
+.grid-item,
+.col
+ {
 
-	float: left;
-
+  flex: 0 0 auto; 
+//   flex: none;
+   
+  html.mod-no-flexbox &{
+    float: left;
+  }
+  
 }
-
-
-.row{
-	@include clearfix();
-}
-
-.col{
-	float: left;
-}
-
-
-.flex-container{
-
-	@include flexbox();
-	
-	@include flexflow(row wrap);
-	
-	@include justify-content(flex-start);
-	
-	@include align-items(flex-start);
-	
-}
-
-.flex-align-center{
-	@include align-items(center);
-}
-
-
-
 
 
 

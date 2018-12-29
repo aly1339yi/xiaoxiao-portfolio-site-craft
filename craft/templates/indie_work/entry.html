@@ -3,6 +3,7 @@
 
 {% set body_class = "template-indie-work template-work" %}
 
+
 {% block main %}
 
 
@@ -44,11 +45,11 @@
 
 		{# MEDIA #}
 
-		<div class="indie-work-media work-media">
+		<div class="indie-work-media work-media js-wait-for-image">
 
 			{% if has_single_media %}
 
-			<div class="indie-work-single-media-cntr">
+			<div class="indie-work-single-media-container">
 		
 			{% switch single_media.type %}
 			
@@ -58,24 +59,17 @@
 					<div class="indie-work-single-image" style="background-image: url({{ single_media.gallery.first().url }})"></div>
 			    	
 			    {% case "video" %}
-		
-	
-					<div class="display-table">
-					<div class="display-table-cell">
 
 					<div class="indie-work-video fitvids">{{ single_media.video.embed() }}</div>
 
-					</div>
-					</div>
 
-			
 			{% endswitch %}
 		
 			</div>
 		
 			{% else %}
 		
-			<div class="indie-work-multiple-media-cntr">
+			<div class="indie-work-multiple-media-container">
 			
 			
 				{% for media_block in media_matrix %}

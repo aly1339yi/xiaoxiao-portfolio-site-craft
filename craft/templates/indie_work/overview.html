@@ -3,16 +3,26 @@
 
 {% set body_class = "template-indie-works-overview template-works-overview" %}
 
+
 {% block main %}
 
-
+<style type="text/css">	
+	
+	.navbar{
+		
+		background-color: {{ entry.navbarBackgroundColor }};
+		color: {{ entry.navbarTextColor }};
+			
+	}
+	
+</style>
 
 <div class="indie-works-overview-container">
 
 
 	{# INDIE WORKS GRID #}
 
-	<div class="indie-works-grid grid">
+	<div class="indie-works-grid grid js-wait-for-image">
 	
 		{% for entry in craft.entries.section('indieWorksSection') %}
 	

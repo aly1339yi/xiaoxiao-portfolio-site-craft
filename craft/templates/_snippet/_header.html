@@ -1,0 +1,21 @@
+<nav class="navbar"
+data-bottom=""
+data-top=""
+data-anchor-target=".comml-work-text-top"
+>
+
+	<a class="navbar-logo" href="{{ siteUrl }}">{{ siteName }}</a>
+	
+	<button class="navbar-toggler nav-bp-up-display-none-imp"></button>
+	
+	<div class="navbar-collapse">
+	
+		{% set navConfig = {
+			'class' : 'navbar-nav',
+		} %}
+
+		{{ craft.navee.nav('mainNav', navConfig) }}	
+		
+	</div>
+	
+</nav>

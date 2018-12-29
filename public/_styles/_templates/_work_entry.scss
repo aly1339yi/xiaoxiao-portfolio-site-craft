@@ -225,8 +225,12 @@ $comml-work-text-top-height: 200px;
 	position: relative;
 }
 
-.indie-work-single-media-cntr{
+.indie-work-single-media-container{
 	height: 100vh;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .indie-work-single-image{
@@ -238,19 +242,20 @@ $comml-work-text-top-height: 200px;
 	background-repeat: no-repeat;
 	background-size: contain;
 	
+	
 }
 
 .indie-work-video{
-	max-width: 1000px;
-	margin: auto;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 1000px;
 }
 
 
 
-.indie-work-multiple-media-cntr{
+.indie-work-multiple-media-container{
 	
-	max-width: 600px;
-	margin: auto;
+	@include max-width(600px,'center');
 	
 }
 

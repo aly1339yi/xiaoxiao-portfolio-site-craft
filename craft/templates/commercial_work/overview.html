@@ -3,16 +3,26 @@
 
 {% set body_class = "template-comml-works-overview template-works-overview" %}
 
+
 {% block main %}
 
-
+<style type="text/css">	
+	
+	.navbar{
+		
+		background-color: {{ entry.navbarBackgroundColor }};
+		color: {{ entry.navbarTextColor }};
+			
+	}
+	
+</style>
 
 <div class="comml-works-overview-container">
 
 
 	{# COMMERCIAL WORKS GRID #}
 
-	<div class="comml-works-grid grid">
+	<div class="comml-works-grid grid js-wait-for-image">
 	
 		{% for entry in craft.entries.section('commercialWorksSection') %}
 	
@@ -50,17 +60,9 @@
 	        	
 	        	
 				<div class="comml-work-card-details" style="background-color: rgba({{ colorRGB }},{{ colorAlpha }});">
-				
-					<div class="display-table">
-					<div class="display-table-cell">
-				
+			
 					<div class="comml-work-card-title" style="color:{{ fontColor }};">{{ entry.commlWorkProject }}</div>
-					
-					
-					</div>
-					</div>
-					
-					
+
 				</div>
 				
 				

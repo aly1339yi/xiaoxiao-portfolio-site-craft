@@ -1,0 +1,83 @@
+.navbar{
+	
+	body.template-indie-work & {
+		display: none !important;
+	}
+	
+	
+	&.skrollable-after{
+		color: #000;
+		background-color: rgba(#fff,0.8);
+	}
+	
+	@include transition(background-color 300ms, color 300ms);
+	
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: list-get($z-index,'navbar');
+	
+	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	
+	@include screen('nav-bp-up') {
+		flex-flow: row nowrap;
+		padding: 0 30px;
+	}
+	
+	@include screen('nav-bp-down') {
+		flex-flow: row wrap;
+	}
+
+
+
+	
+}
+
+.navbar-logo{
+	
+	font-size: 16px;
+	font-weight: 900;  
+}
+
+.navbar-toggler{
+	
+}
+
+.navbar-collapse{
+		
+	@include screen('nav-bp-down') {
+		flex: 0 0 100%;
+	}
+	
+	
+	
+}
+
+
+ul.navbar-nav{
+	display: flex;
+	
+	li{
+		a{
+			display: block;
+			height: $navbar-height;
+			line-height: $navbar-height;
+			padding: 0 15px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

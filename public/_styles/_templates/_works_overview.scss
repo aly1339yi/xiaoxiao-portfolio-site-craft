@@ -60,16 +60,22 @@
 .comml-work-card-details{
 	opacity: 0;
 	@include overlay(absolute);
-	padding: 0 15px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	
 }
 
 
 .comml-work-card-title{
+	
+	padding: 0 15px;
 	font-weight: 900;
 	font-size: 2rem;
 	text-align: center;
+	
 }
 
 
@@ -169,9 +175,12 @@
 
 	@include overlay(fixed);
 	
+	z-index: list-get($z-index,'fullscreen-overlay');
+	
 	overflow: auto;
 	
-	background-color: rgba( #000, .9 );
+	background-color: rgba( #000, 1 );
+	
 	
 }
 

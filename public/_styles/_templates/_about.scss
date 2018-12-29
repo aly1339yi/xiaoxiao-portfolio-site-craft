@@ -1,0 +1,113 @@
+
+
+.about-section-strand{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	
+	width: 1px;
+	@include transform(translateX(-50%));
+	
+	background-color: #fff;
+}
+
+
+
+
+
+.about-brief{
+	
+	position: relative;
+	height: 100vh;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	background: url(/_assets/images/Design_About_BG_1.jpg) no-repeat 50% 99.5%;
+	background-size: cover;
+}
+
+.about-brief-strand{
+	top: 50%;
+}
+
+.about-brief-text{
+	font-size: 18px;
+	font-weight: 900;
+	text-align: center;
+}
+
+.about-brief-text-row-1{
+	margin-left: 65px;
+}
+
+.about-brief-name{
+    display: inline-block;
+    margin: 50px 0px 10px 0px;
+    padding: 20px 20px 16px 20px;
+    
+    background-color: #fff;
+    font-weight: 300;
+	
+}
+
+.about-brief-text-row-2{
+	margin-left: -30px;
+}
+
+.about-brief-industry{
+    display: inline-block;
+    margin-left: 40px;
+    
+    vertical-align: top;
+    text-align: left;
+    font-weight: 700;
+    
+    span{
+	    display: block;
+    }
+}
+
+
+.about-bio{
+	
+	position: relative;
+	height: 100vh;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	background: url(/_assets/images/Design_About_BG_2.jpg) no-repeat 50% 0%;
+	background-size: cover;
+	
+}
+
+.about-bio-strand{
+	top: 0;
+	
+}
+
+.about-bio-text{
+	
+	position: relative;
+	z-index: 1;
+	
+	max-width: 800px;
+	padding: 0 15px;
+	text-align: center;
+	
+	font-size: 20px;
+	font-weight: 400;
+	color: #000;
+	
+	
+}
+
+
+
+
+
+
+

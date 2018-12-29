@@ -1,10 +1,21 @@
 {% extends "/_layout.html" %}
 
+
 {% set body_class = "template-comml-work template-work" %}
 
 
-
 {% block main %}
+
+
+<style type="text/css">	
+	
+	.navbar{
+		
+		color: {{ entry.commlWorkNavbarTextColor }};
+			
+	}
+	
+</style>
 
 
 <div class="comml-work-container">
@@ -25,12 +36,17 @@
 		
 				{% set imageSrc = entry.commlWorkHeroImage.first().url %}
 			
-				<div class="comml-work-hero-image" style="background-image: url({{ imageSrc }});"></div>
+				<div class="comml-work-hero-image js-wait-for-image" style="background-image: url({{ imageSrc }});"></div>
 			
-			
+				{# 	get the color from the fields (hex) #}
+				
 				{% set heroBkgColorHex = entry.commlWorkHeroBkgColor %}
 				
+				{# 	create color model from hex #}
+				
 				{% set hueHeroBkgColor = craft.hue.createColorFromHex(heroBkgColorHex) %}
+				
+				{# 	get rgb from color model #}
 				
 				{% set heroBkgColorRGB = hueHeroBkgColor.rgb %}
 			
