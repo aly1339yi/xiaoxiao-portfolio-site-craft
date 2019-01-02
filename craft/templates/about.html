@@ -53,22 +53,38 @@
 
 	<div class="about-cv">
 		
-		<div class="about-cv-skills">
-			<div class="about-cv-title">skills</div>
-			<div class="about-cv-content"></div>
+		<div class="cv-skills cv-section medium-up-one-half medium-up-push-one-half">
+			<div class="cv-title">skills</div>
+			<div class="cv-content">
+				<ul>
+				{% for skill in entry.aboutSkills %}
+				<li>
+					<div class="skill-title">{{skill.heading}}</div>
+					<div class="skill-details">{{skill.details}}</div>
+				</li>
+				{% endfor %}
+				</ul>
+			</div>
 		</div>
 		
-		<div class="about-cv-experience">
-			<div class="about-cv-title">experience</div>
-			<div class="about-cv-content"></div>
+		<div class="cv-experience cv-section medium-up-one-half">
+			<div class="cv-title">experience</div>
+			<div class="cv-content">
+				<ul>
+				{% for exp in entry.aboutExperience %}
+				<li>
+					<div class="experience-period">{{exp.period}}</div>
+					<div class="experience-position">{{exp.position}}</div>
+					<div class="experience-place">{{exp.place}}</div>
+				</li>
+				{% endfor %}
+				</ul>
+			</div>
 		</div>
 
-		<div class="about-cv-education">
-			<div class="about-cv-title">education</div>
-			<div class="about-cv-content">
-				<p>2014, MFA Computer Art</p>
-				<p>School of Visual Arts, New York</p>
-			</div>
+		<div class="cv-education cv-section medium-up-one-half medium-up-push-one-half">
+			<div class="cv-title">education</div>
+			<div class="cv-content">{{ entry.aboutEducation | nl2br }}</div>
 		</div>
 	
 	</div>

@@ -98,12 +98,98 @@
 	padding: 0 15px;
 	text-align: center;
 	
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 400;
 	color: #000;
 	
 	
 }
+
+
+.about-cv{
+	
+	
+	
+	
+	@include screen('medium-up'){
+		padding: 65px 15px;
+	}
+}
+
+.cv-section{
+	position: relative;
+	& + &{
+		margin-top: 20px;
+	}
+}
+
+.cv-experience{
+	@include screen('medium-up'){
+		text-align: right;	
+	}
+
+}
+
+.cv-title{
+	margin-bottom: 5px;
+	font-size: 20px;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.cv-content{
+	font-size: 16px;
+	font-weight: 700;
+}
+
+
+.cv-skills{
+	li{
+		& + li{
+			margin-top: 6px;
+		}
+		a{
+			
+		}
+	}
+}
+
+.skill-title{
+	
+}
+
+.skill-details{
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.cv-experience{
+	li{
+		& + li{
+			margin-top: 6px;
+		}
+		a{
+			
+		}
+	}
+}
+
+.experience-period{
+	font-weight: 300;
+}
+
+.experience-position{
+	
+}
+
+.experience-place{
+	
+}
+
+.cv-education{
+	
+}
+
 
 
 

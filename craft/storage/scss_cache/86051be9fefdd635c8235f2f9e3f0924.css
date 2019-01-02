@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Sat, 29 Dec 2018 03:37:43 +0000 (0.6934s) */
+/* compiled by scssphp v0.1.10 on Tue, 01 Jan 2019 17:32:53 +0000 (0.6941s) */
 
 /* =========================================================================
  Color
@@ -5251,6 +5251,41 @@ html.mod-no-mobile .work-nav-next:hover {
   max-width: 800px;
   padding: 0 15px;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   color: #000; }
+
+@media only screen and (min-width: 992px) {
+    .about-cv {
+      padding: 65px 15px; } }
+
+.cv-section {
+  position: relative; }
+
+.cv-section + .cv-section {
+  margin-top: 20px; }
+
+@media only screen and (min-width: 992px) {
+    .cv-experience {
+      text-align: right; } }
+
+.cv-title {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase; }
+
+.cv-content {
+  font-size: 16px;
+  font-weight: 700; }
+
+.cv-skills li + li {
+  margin-top: 6px; }
+  .skill-details {
+    font-size: 13px;
+    font-weight: 400; }
+
+.cv-experience li + li {
+  margin-top: 6px; }
+  .experience-period {
+    font-weight: 300; }
