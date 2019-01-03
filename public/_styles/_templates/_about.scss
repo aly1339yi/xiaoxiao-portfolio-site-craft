@@ -20,12 +20,13 @@
 	position: relative;
 	height: 100vh;
 	
+	background: url(/_assets/images/Design_About_BG_1.jpg) no-repeat 50% 99.5%;
+	background-size: cover;
+	
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	
-	background: url(/_assets/images/Design_About_BG_1.jpg) no-repeat 50% 99.5%;
-	background-size: cover;
 }
 
 .about-brief-strand{
@@ -74,13 +75,13 @@
 	
 	position: relative;
 	height: 100vh;
+		
+	background: url(/_assets/images/Design_About_BG_2.jpg) no-repeat 50% 0%;
+	background-size: cover;
 	
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
-	background: url(/_assets/images/Design_About_BG_2.jpg) no-repeat 50% 0%;
-	background-size: cover;
 	
 }
 
@@ -108,11 +109,10 @@
 
 .about-cv{
 	
+	padding: 65px 15px;
 	
-	
-	
-	@include screen('medium-up'){
-		padding: 65px 15px;
+	@include screen('medium-down'){
+		padding: 30px 15px;
 	}
 }
 
@@ -188,6 +188,74 @@
 
 .cv-education{
 	
+}
+
+
+
+.about-social{
+	position: relative;
+	height: 60vh;
+	
+	background: url(/_assets/images/Design_About_BG_3.jpg) no-repeat 50% 0%;
+	background-size: cover;
+	
+}
+
+.social-list{
+	li{
+		a{
+			font-size: 30px;
+			@include screen('medium-down'){
+				font-size: 18px;
+			}
+		}
+	}
+}
+
+
+.social-list-left{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	
+	li{
+		&:not(:first-child){
+			margin-left: 12vw;
+			@include screen('medium-down'){
+				margin-left: 12px;
+			}
+		}
+	}
+	
+}
+.social-list-right{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	
+	li{
+		&:not(:last-child){
+			margin-right: 12vw;
+			@include screen('medium-down'){
+				margin-right: 12px;
+			}
+		}
+	}
+	
+}
+
+
+.about-poem{
+	height: 40vh;
+	padding: 0 15px;
+	
+	background-color: #000;
+	
+	color: #494949;
+	
+	font-size: 16px;
+	font-weight: 400;
+	text-align: center;
 }
 
 

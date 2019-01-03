@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Tue, 01 Jan 2019 17:32:53 +0000 (0.6941s) */
+/* compiled by scssphp v0.1.10 on Thu, 03 Jan 2019 19:16:13 +0000 (0.7287s) */
 
 /* =========================================================================
  Color
@@ -55,6 +55,13 @@
 
 .elegant-icon {
   font-family: 'ElegantIcons'; }
+
+@font-face {
+  font-family: 'Socicon';
+  src: url('/_assets/fonts/Socicon.eot');
+  src: url('/_assets/fonts/Socicon.eot#iefix') format('embedded-opentype'), url('/_assets/fonts/Socicon.woff2') format('woff2'), url('/_assets/fonts/Socicon.ttf') format('truetype'), url('/_assets/fonts/Socicon.woff') format('woff'), url('/_assets/fonts/Socicon.svg#Socicon') format('svg');
+  font-weight: normal;
+  font-style: normal; }
 
 [class^="socicon-"], [class*=" socicon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -4881,6 +4888,9 @@ ul.navbar-nav li a {
 /* =========================================================================
  Commercial Works Overview
  ========================================================================= */
+.comml-works-overview-container {
+  background-color: #000; }
+
 .comml-work-card {
   position: relative;
   overflow: hidden;
@@ -4923,6 +4933,9 @@ html.mod-no-mobile .comml-work-card .comml-work-card-image-wrapper {
 /* =========================================================================
  Indie Works Overview
  ========================================================================= */
+.indie-works-overview-container {
+  background-color: #000; }
+
 .indie-work-card {
   position: relative;
   overflow: hidden;
@@ -5196,11 +5209,11 @@ html.mod-no-mobile .work-nav-next:hover {
 .about-brief {
   position: relative;
   height: 100vh;
+  background: url(/_assets/images/Design_About_BG_1.jpg) no-repeat 50% 99.5%;
+  background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: url(/_assets/images/Design_About_BG_1.jpg) no-repeat 50% 99.5%;
-  background-size: cover; }
+  align-items: center; }
 
 .about-brief-strand {
   top: 50%; }
@@ -5236,11 +5249,11 @@ html.mod-no-mobile .work-nav-next:hover {
 .about-bio {
   position: relative;
   height: 100vh;
+  background: url(/_assets/images/Design_About_BG_2.jpg) no-repeat 50% 0%;
+  background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: url(/_assets/images/Design_About_BG_2.jpg) no-repeat 50% 0%;
-  background-size: cover; }
+  align-items: center; }
 
 .about-bio-strand {
   top: 0; }
@@ -5255,9 +5268,12 @@ html.mod-no-mobile .work-nav-next:hover {
   font-weight: 400;
   color: #000; }
 
-@media only screen and (min-width: 992px) {
+.about-cv {
+  padding: 65px 15px; }
+
+@media only screen and (max-width: 991px) {
     .about-cv {
-      padding: 65px 15px; } }
+      padding: 30px 15px; } }
 
 .cv-section {
   position: relative; }
@@ -5289,3 +5305,81 @@ html.mod-no-mobile .work-nav-next:hover {
   margin-top: 6px; }
   .experience-period {
     font-weight: 300; }
+
+.about-social {
+  position: relative;
+  height: 60vh;
+  background: url(/_assets/images/Design_About_BG_3.jpg) no-repeat 50% 0%;
+  background-size: cover; }
+
+.social-list li a {
+  font-size: 30px; }
+  @media only screen and (max-width: 991px) {
+      .social-list li a {
+        font-size: 18px; } }
+
+.social-list-left {
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+.social-list-left li:not(:first-child) {
+  margin-left: 12vw; }
+  @media only screen and (max-width: 991px) {
+      .social-list-left li:not(:first-child) {
+        margin-left: 12px; } }
+
+.social-list-right {
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
+.social-list-right li:not(:last-child) {
+  margin-right: 12vw; }
+  @media only screen and (max-width: 991px) {
+      .social-list-right li:not(:last-child) {
+        margin-right: 12px; } }
+
+.about-poem {
+  height: 40vh;
+  padding: 0 15px;
+  background-color: #000;
+  color: #494949;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center; }
+
+.contact-container {
+  position: relative;
+  height: 100vh;
+  background: url(/_assets/images/Design_Contact_BG_1.jpg) no-repeat 50% 99.5%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.contact-text {
+  display: flex; }
+
+.contact-title {
+  font-size: 20px; }
+
+.contact-title span {
+  margin-right: 15px;
+  font-weight: 900;
+  font-size: 32px; }
+
+.contact-info {
+  display: flex;
+  margin-top: 50px;
+  margin-left: 80px; }
+
+.contact-label {
+  padding-right: 30px;
+  text-align: right;
+  font-size: 20px; }
+
+.contact-details a {
+  display: block;
+  font-weight: 700;
+  font-size: 20px; }

@@ -1,0 +1,48 @@
+.contact-container{
+	position: relative;
+	height: 100vh;
+		
+	background: url(/_assets/images/Design_Contact_BG_1.jpg) no-repeat 50% 99.5%;
+	background-size: cover;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.contact-text{
+	display: flex;
+}
+
+
+.contact-title{
+	span{
+		margin-right: 15px;
+		font-weight: 900;
+		font-size: 32px;
+	}
+	
+	font-size: 20px;
+}
+
+.contact-info{
+	display: flex;
+	margin-top: 50px;
+	margin-left: 80px;
+	
+}
+
+.contact-label{
+	padding-right: 30px;
+	text-align: right;
+	font-size: 20px;
+}
+
+.contact-details{
+	a{
+		display: block;
+		font-weight: 700;
+		font-size: 20px;
+	}
+}

@@ -1,0 +1,55 @@
+{% extends "/_layout.html" %}
+
+
+{% set body_class = "template-contact" %}
+
+
+{% block main %}
+
+<style type="text/css">	
+	
+{#
+	.navbar{
+		
+		background-color: {{ entry.navbarBackgroundColor }};
+		color: {{ entry.navbarTextColor }};
+			
+	}
+#}
+	
+</style>
+
+
+
+<div class="contact-container js-wait-for-image">
+
+	<div class="contact-text">
+	
+		<div class="contact-title"><span>Contact</span>Xiaoxiao</div>
+		
+		<div class="contact-info">
+		
+			<div class="contact-label">
+				<div>Email</div>
+				<div>Tel</div>
+			</div>
+			
+			<div class="contact-details">
+				<a href="mailto:soupsmallsmall@hotmail.com">soupsmallsmall@hotmail.com</a>
+				<a href="tel:347-302-4375">347-302-4375</a>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	
+	
+</div>
+
+
+
+
+
+
+{% endblock main %}

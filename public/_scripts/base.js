@@ -69,12 +69,12 @@ $.urlParam = function(name){
 ========================================================================= */
 
 
- $('.js-wait-for-image').waitForImages(function() {
+
+$('.js-wait-for-image').waitForImages(true).done(function() {
     $('.hidden-before-images-ready').animate({
         opacity: '1'
     }, 200);
- });
-
+});
 
 
 /* =========================================================================
