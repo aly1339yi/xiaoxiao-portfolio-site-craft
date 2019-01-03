@@ -99,7 +99,8 @@
 	padding: 0 15px;
 	text-align: center;
 	
-	font-size: 18px;
+	font-size: 22px;
+	line-height: 1.8;
 	font-weight: 400;
 	color: #000;
 	
@@ -109,7 +110,7 @@
 
 .about-cv{
 	
-	padding: 65px 15px;
+	padding: 80px 15px;
 	
 	@include screen('medium-down'){
 		padding: 30px 15px;

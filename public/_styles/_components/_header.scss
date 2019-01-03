@@ -1,5 +1,11 @@
 .navbar{
 	
+	body.template-index & {
+		top: auto;
+		bottom: 0;
+	}
+	
+	
 	body.template-indie-work & {
 		display: none !important;
 	}
