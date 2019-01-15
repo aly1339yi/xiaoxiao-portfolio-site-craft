@@ -6,26 +6,14 @@
 
 {% block main %}
 
-<style type="text/css">	
-	
-{#
-	.navbar{
-		
-		background-color: {{ entry.navbarBackgroundColor }};
-		color: {{ entry.navbarTextColor }};
-			
-	}
-#}
-	
-</style>
-
-
 
 <div class="about-container">
 
-	<div class="about-brief js-wait-for-image">
+	{% set imageSrc = entry.aboutBriefBkgImage.first().url %}
+
+	<div class="about-brief js-wait-for-image" style="background-image: url({{ imageSrc }});">
 		
-		<div class="about-brief-text">{{ entry.aboutBrief }}</div>
+		<div class="about-brief-text">{{ entry.aboutBriefText }}</div>
 {#
 			<div class="about-brief-text-row-1">Hi, My name is <div class="about-brief-name">Xiaoxiao Tang</div>, a Multimedia Artist</div>
 			<div class="about-brief-text-row-2">specializing in<div class="about-brief-industry"><div>Animation,</div><div>Compositing,</div><div>Motion Graphics</div><div>...</div></div>
@@ -37,10 +25,11 @@
 	
 	</div>
 
+	{% set imageSrc = entry.aboutBioBkgImage.first().url %}
 	
-	<div class="about-bio">
+	<div class="about-bio" style="background-image: url({{ imageSrc }});">
 	
-		<div class="about-bio-text">{{ entry.aboutBio | nl2br }}</div>
+		<div class="about-bio-text">{{ entry.aboutBioText | nl2br }}</div>
 	
 	
 {# Raised in Beijing China, Xiaoxiao now works based in New York, as a freelance compositor and motion graphics artist with brand list including Google, Amazon, Apple, Dell, Samsung, Bosch, Ford, McDonald’s, ESPN, Nickelodeon, Cartoon Network, Sesame Studios, VH1 TV, Hanes, Footlocker, CVS, Navy Federal Credit Union, etc. Her animated film "Rock is not an Attitude" has been official selected and screened in numerous international festivals, including ANIMAYO International Film Festival, Athens International Film Festival, CutOut Fest, 56th Zlín Film Festival, Brooklyn Film Festival, Adobe Design Achievement Awards to name a few. When creating as an independent artist, Xiaoxiao loves stop-motion animation and is particularly interested in its ability to allow a deeper expression based on its direct physical foundation. #}
@@ -89,8 +78,9 @@
 	
 	</div>
 
+	{% set imageSrc = entry.aboutSocialBkgImage.first().url %}
 
-	<div class="about-social">
+	<div class="about-social" style="background-image: url({{ imageSrc }});">
 
 		<ul class="social-list social-list-left">
 			<li><a href="https://www.facebook.com/" target="_blank" class="socicon-vimeo"></a></li>
@@ -101,7 +91,7 @@
 		<ul class="social-list social-list-right">
 			<li><a href="http://www.pinterest.com/" target="_blank" class="socicon-linkedin"></a></li>
 			<li><a href="http://www.pinterest.com/" target="_blank" class="socicon-behance"></a></li>
-			<li><a href="http://www.pinterest.com/" target="_blank" class="socicon-behance"></a></li>
+			<li><a href="http://www.pinterest.com/" target="_blank" class="socicon-facebook"></a></li>
 		</ul>	
 	
 	</div>

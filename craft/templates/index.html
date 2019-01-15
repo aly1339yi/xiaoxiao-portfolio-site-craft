@@ -6,24 +6,23 @@
 
 {% block main %}
 
-<style type="text/css">	
+
+{% set imageSrc = entry.skyBkgImage.first().url %}
+
+<div class="sky js-wait-for-image" style="background-image: url({{ imageSrc }});">
+
+	{% for element in entry.skyElements %}
 	
+	<div class="layer-{{ loop.index }} layer" data-depth="{{ element.depth }}">
+		{% set imageSrc = element.image.first().url %}
+		<img src="{{ imageSrc }}" style="{{ element.css }}">
+	</div>
+
+	{% endfor %}
+
+
+
 {#
-	.navbar{
-		
-		background-color: {{ entry.navbarBackgroundColor }};
-		color: {{ entry.navbarTextColor }};
-			
-	}
-#}
-	
-</style>
-
-
-<div class="sky js-wait-for-image">
-
-
-
 	<div class="layer" data-depth="0">
 		<div class="feather">
 			<img class="block-fullheight" src="/_assets/images/Home_collage_output_Feather_and_Line.png">
@@ -33,7 +32,6 @@
 	<div class="layer" data-depth="0">
 		<div class="name">
 			<img class="block-fullwidth" src="/_assets/images/Home_collage_output_sqPaper.png">
-	        <div class="name-text">汤晓晓</div>
 		</div>
 	</div>
 
@@ -75,6 +73,7 @@
 		</div>
 	</div>	
 	
+#}
 
 	
 </div>

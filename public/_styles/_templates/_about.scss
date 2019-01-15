@@ -20,7 +20,9 @@
 	position: relative;
 	height: 100vh;
 	
-	background: url(/_assets/images/Design_About_BG_1.jpg) no-repeat 50% 99.5%;
+	
+	background-repeat: no-repeat;
+	background-position: 50% 99.5%;
 	background-size: cover;
 	
 	display: flex;
@@ -75,8 +77,9 @@
 	
 	position: relative;
 	height: 100vh;
-		
-	background: url(/_assets/images/Design_About_BG_2.jpg) no-repeat 50% 0%;
+
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
 	background-size: cover;
 	
 	display: flex;
@@ -197,7 +200,8 @@
 	position: relative;
 	height: 60vh;
 	
-	background: url(/_assets/images/Design_About_BG_3.jpg) no-repeat 50% 0%;
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
 	background-size: cover;
 	
 }
@@ -205,9 +209,14 @@
 .social-list{
 	li{
 		a{
-			font-size: 30px;
+			font-size: 24px;
 			@include screen('medium-down'){
 				font-size: 18px;
+			}
+			
+			&.socicon-mail,
+			&.socicon-behance{
+				font-size: 28px;
 			}
 		}
 	}

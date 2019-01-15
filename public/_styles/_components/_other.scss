@@ -45,14 +45,11 @@
 
 
 .social-list{
-    @include clearfix;
+    display: flex;
+    align-items: center;
     li{
-        float: left;
         a{
             display: block;
-            padding: 0 8px;
-            font-size: 1.8rem;
-
             @include hover-opacity;
         }
     }

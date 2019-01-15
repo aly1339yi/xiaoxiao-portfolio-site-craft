@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Thu, 03 Jan 2019 22:27:12 +0000 (0.7633s) */
+/* compiled by scssphp v0.1.10 on Fri, 11 Jan 2019 02:37:36 +0000 (0.7311s) */
 
 /* =========================================================================
  Color
@@ -4614,23 +4614,18 @@ html.mod-no-flexbox .grid-item, html.mod-no-flexbox .col {
 /* =========================================================================
  Social List
  ========================================================================= */
-.social-list:after {
-  content: " ";
-  display: block;
-  clear: both; }
+.social-list {
+  display: flex;
+  align-items: center; }
 
-.social-list li {
-  float: left; }
-  .social-list li a {
-    display: block;
-    padding: 0 8px;
-    font-size: 1.8rem;
-    cursor: pointer; }
-    html.mod-no-mobile .social-list li a {
-      -webkit-transition: opacity 300ms ease-in-out 0s;
-      transition: opacity 300ms ease-in-out 0s; }
-      html.mod-no-mobile .social-list li a:hover {
-        opacity: 0.4; }
+.social-list li a {
+  display: block;
+  cursor: pointer; }
+  html.mod-no-mobile .social-list li a {
+    -webkit-transition: opacity 300ms ease-in-out 0s;
+    transition: opacity 300ms ease-in-out 0s; }
+    html.mod-no-mobile .social-list li a:hover {
+      opacity: 0.4; }
 /* ========================================================================
  Canvas
  ========================================================================= */
@@ -4817,8 +4812,8 @@ html.mod-no-mobile .btn-outline-white {
   html.mod-no-mobile .rte a {
     -webkit-transition: opacity 300ms ease-in-out 0s;
     transition: opacity 300ms ease-in-out 0s; }
-    html.mod-no-mobile .rte a:hover {
-      opacity: 0.4; }
+  html.mod-no-mobile .rte a:hover {
+    opacity: 0.4; }
 /* =========================================================================
  Overlay
  ========================================================================= */
@@ -4853,9 +4848,9 @@ body.template-works-overview {
   justify-content: space-between;
   align-items: center; }
 
-body.template-index .navbar {
-  top: auto;
-  bottom: 0; }
+body.template-works-overview .navbar {
+  background-color: #000;
+  color: #fff; }
 
 body.template-indie-work .navbar {
   display: none !important; }
@@ -4908,74 +4903,66 @@ ul.navbar-nav li a {
   left: 0;
   right: 0;
   overflow: hidden;
-  background: url(/_assets/images/Home_collage_PaperBackground.jpg) no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover; }
 
 .layer {
   width: 100%;
   height: 100%; }
-
-.feather {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  height: 80%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  transform: translateX(-50%); }
-
-.name {
-  position: absolute;
-  top: 15%;
-  right: 35%;
-  width: 6%; }
-
-.name .name-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  font-family: 'STKaiti';
-  font-size: 18px;
-  text-align: center; }
-
-.cloud-1 {
-  position: absolute;
-  top: 3%;
-  left: 10%;
-  width: 15%; }
-
-.cloud-2 {
-  position: absolute;
-  bottom: 36%;
-  left: 10%;
-  width: 10%; }
-
-.cloud-3 {
-  position: absolute;
-  bottom: 20%;
-  left: 25%;
-  width: 12%; }
-
-.cloud-4 {
-  position: absolute;
-  bottom: 36%;
-  right: 30%;
-  width: 10%; }
-
-.cloud-5 {
-  position: absolute;
-  bottom: 12%;
-  right: 5%;
-  width: 8%; }
-
-.cloud-6 {
-  position: absolute;
-  bottom: 25%;
-  right: -2%;
-  width: 8%; }
+/*
+ .feather{
+ position: absolute;
+ bottom: 0;
+ left: 50%;
+ height: 80%;
+ @include transform(translateX(-50%));
+ }
+ .name{
+ position: absolute;
+ top: 15%;
+ right: 35%;
+ width: 6%;
+ }
+ .cloud{
+ }
+ .cloud-1{
+ position: absolute;
+ top: 3%;
+ left: 10%;
+ width: 15%;
+ }
+ .cloud-2{
+ position: absolute;
+ bottom: 36%;
+ left: 10%;
+ width: 10%;
+ }
+ .cloud-3{
+ position: absolute;
+ bottom: 20%;
+ left: 25%;
+ width: 12%;
+ }
+ .cloud-4{
+ position: absolute;
+ bottom: 36%;
+ right: 30%;
+ width: 10%;
+ }
+ .cloud-5{
+ position: absolute;
+ bottom: 12%;
+ right: 5%;
+ width: 8%;
+ }
+ .cloud-6{
+ position: absolute;
+ bottom: 25%;
+ right: -2%;
+ width: 8%;
+ }
+ */
 /* =========================================================================
  Commercial Works Overview
  ========================================================================= */
@@ -4997,8 +4984,8 @@ html.mod-no-mobile .comml-work-card .comml-work-card-image-wrapper {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     transform: scale(1.2); }
-    html.mod-no-mobile .comml-work-card:hover .comml-work-card-details {
-      opacity: 1; }
+  html.mod-no-mobile .comml-work-card:hover .comml-work-card-details {
+    opacity: 1; }
 
 .comml-work-card-image-wrapper {
   -webkit-transform: scale(1.01);
@@ -5049,10 +5036,10 @@ html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
     -webkit-transform: translateY(-10%);
     -moz-transform: translateY(-10%);
     transform: translateY(-10%); }
-    html.mod-no-mobile .indie-work-card:hover .indie-work-card-details {
-      -webkit-transform: translateY(0);
-      -moz-transform: translateY(0);
-      transform: translateY(0); }
+  html.mod-no-mobile .indie-work-card:hover .indie-work-card-details {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0); }
 
 .indie-work-card-details {
   text-align: right; }
@@ -5300,7 +5287,8 @@ html.mod-no-mobile .work-nav-next:hover {
 .about-brief {
   position: relative;
   height: 100vh;
-  background: url(/_assets/images/Design_About_BG_1.jpg) no-repeat 50% 99.5%;
+  background-repeat: no-repeat;
+  background-position: 50% 99.5%;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -5340,7 +5328,8 @@ html.mod-no-mobile .work-nav-next:hover {
 .about-bio {
   position: relative;
   height: 100vh;
-  background: url(/_assets/images/Design_About_BG_2.jpg) no-repeat 50% 0%;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -5401,14 +5390,17 @@ html.mod-no-mobile .work-nav-next:hover {
 .about-social {
   position: relative;
   height: 60vh;
-  background: url(/_assets/images/Design_About_BG_3.jpg) no-repeat 50% 0%;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
   background-size: cover; }
 
 .social-list li a {
-  font-size: 30px; }
+  font-size: 24px; }
   @media only screen and (max-width: 991px) {
       .social-list li a {
         font-size: 18px; } }
+  .social-list li a.socicon-mail, .social-list li a.socicon-behance {
+    font-size: 28px; }
 
 .social-list-left {
   position: absolute;
@@ -5444,7 +5436,8 @@ html.mod-no-mobile .work-nav-next:hover {
 .contact-container {
   position: relative;
   height: 100vh;
-  background: url(/_assets/images/Design_Contact_BG_1.jpg) no-repeat 50% 99.5%;
+  background-repeat: no-repeat;
+  background-position: 50% 99.5%;
   background-size: cover;
   display: flex;
   justify-content: center;

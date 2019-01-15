@@ -6,22 +6,9 @@
 
 {% block main %}
 
-<style type="text/css">	
-	
-{#
-	.navbar{
-		
-		background-color: {{ entry.navbarBackgroundColor }};
-		color: {{ entry.navbarTextColor }};
-			
-	}
-#}
-	
-</style>
+{% set imageSrc = entry.contactBkgImage.first().url %}
 
-
-
-<div class="contact-container js-wait-for-image">
+<div class="contact-container js-wait-for-image" style="background-image: url({{ imageSrc }});">
 
 	<div class="contact-text">
 	
