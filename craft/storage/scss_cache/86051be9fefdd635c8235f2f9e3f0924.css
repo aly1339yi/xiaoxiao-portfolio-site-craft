@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Fri, 11 Jan 2019 02:37:36 +0000 (0.7311s) */
+/* compiled by scssphp v0.1.10 on Wed, 27 Feb 2019 21:59:11 +0000 (0.7428s) */
 
 /* =========================================================================
  Color
@@ -4852,6 +4852,9 @@ body.template-works-overview .navbar {
   background-color: #000;
   color: #fff; }
 
+body.template-commercial-reel .navbar {
+  color: #fff; }
+
 body.template-indie-work .navbar {
   display: none !important; }
 
@@ -5067,15 +5070,12 @@ html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
 /* =========================================================================
  Commercial Work
  ========================================================================= */
-.comml-work-hero-section {
+.comml-work-hero {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: -1; }
-
-.comml-work-hero {
-  position: relative; }
 
 .comml-work-hero-image {
   height: 100vh;
@@ -5096,7 +5096,7 @@ html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
 .comml-work-main {
   margin-top: calc(100vh - 200px); }
 
-.comml-work-text-section {
+.comml-work-text {
   padding: 0 15px; }
 
 .comml-work-text-top {
@@ -5273,6 +5273,95 @@ html.mod-no-mobile .work-nav-next:hover {
   -webkit-transform: translateY(-50%) translateX(10%);
   -moz-transform: translateY(-50%) translateX(10%);
   transform: translateY(-50%) translateX(10%); }
+
+.comml-reel-hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 150px;
+  z-index: -1;
+  background-color: #252525;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center; }
+
+.comml-reel-video {
+  flex: none;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.comml-reel-main {
+  margin-top: calc(100vh - 150px);
+  background-color: #2e2e2e; }
+
+.comml-reel-header {
+  position: relative;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center; }
+
+.comml-reel-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #818080; }
+
+.comml-reel-keyword {
+  color: #e0e0e0;
+  font-size: 1.7rem;
+  font-weight: 700; }
+
+.comml-reel-breakdown-title {
+  margin-bottom: 15px;
+  color: #e0e0e0;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase; }
+
+.comml-reel-breakdown-title:after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  margin: 5px auto 0;
+  background-color: #fff; }
+
+.comml-reel-breakdown-grid {
+  padding: 0 5px; }
+
+.comml-reel-breakdown-grid-item {
+  padding: 0 5px;
+  margin-bottom: 10px; }
+
+.comml-reel-work-card-details {
+  background-color: #000;
+  color: #fff;
+  padding: 15px 15px;
+  text-align: center; }
+
+.comml-reel-work-card-time {
+  margin-bottom: 10px;
+  font-weight: 700; }
+
+.comml-reel-work-card-client {
+  font-weight: 900;
+  font-size: 2rem; }
+
+.comml-reel-work-card-project {
+  margin-bottom: 20px;
+  font-weight: 800; }
+
+.comml-reel-work-card-keywords {
+  margin-bottom: 10px;
+  font-weight: 400; }
 
 .about-section-strand {
   position: absolute;

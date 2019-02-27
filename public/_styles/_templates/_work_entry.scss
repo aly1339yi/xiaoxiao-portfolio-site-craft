@@ -14,7 +14,7 @@ $comml-work-text-top-height: 200px;
 
 // HERO
 
-.comml-work-hero-section{
+.comml-work-hero{
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -22,9 +22,6 @@ $comml-work-text-top-height: 200px;
 	z-index: -1;
 }
 
-.comml-work-hero{
-	position: relative;
-}
 
 .comml-work-hero-image{
 	
@@ -66,7 +63,7 @@ $comml-work-text-top-height: 200px;
 
 // TEXT
 
-.comml-work-text-section{
+.comml-work-text{
 	padding: 0 15px;
 }
 

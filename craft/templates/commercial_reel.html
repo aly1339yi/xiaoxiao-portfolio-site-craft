@@ -1,0 +1,137 @@
+{% extends "/_layout.html" %}
+
+
+{% set body_class = "template-commercial-reel" %}
+
+
+{% block main %}
+
+
+
+<div class="comml-reel-container">
+
+
+	<div class="comml-reel reel">
+	
+	
+	
+		{# HERO SECTION #}
+		
+		<div class="comml-reel-hero"
+		data-bottom="transform:translateY(0px);"
+		data-top="transform:translateY(-300px);"
+		data-anchor-target=".comml-reel-header"
+		>
+		
+		
+			{% set video = entry.commlReelVideo %}
+			
+			{% set videoWidth = video.width %}
+			{% set videoHeight = video.height %}
+			
+			{% set videoEmbed = video.embed({ 
+				width: videoWidth,
+				height: videoHeight
+			}) %}
+			
+			<div class="comml-reel-video fitvids">{{ videoEmbed }}</div>
+		
+		
+		
+		
+		</div>
+	
+		{# END HERO SECTION #}
+			
+	
+		
+		{# MAIN #}
+	
+		<div class="comml-reel-main">
+	
+
+			{# HEADER #}
+	
+			<div class="comml-reel-header">
+			
+				<div class="comml-reel-title">{{ entry.commlReelTitle }}</div>
+				<div class="comml-reel-keyword">{{ entry.commlReelKeywords }}</div>
+			
+			</div>
+			
+			{# END HEADER #}
+			
+			
+			
+			{# BREAKDOWN #}
+	
+			<div class="comml-reel-breakdown">
+			
+				<div class="comml-reel-breakdown-title">Projects in the Reel</div>
+			
+				<div class="comml-reel-breakdown-grid grid">
+				
+					{% for item in entry.commlReelBreakdown %}
+					
+						{% set breakdown_work = item.work.first() %}
+					
+						<div class="comml-reel-breakdown-grid-item grid-item one-whole small-up-one-half medium-up-one-third large-up-one-quarter">
+						
+							<div class="comml-reel-work-card">
+							
+							
+					        	<a href="{{ breakdown_work.url }}">
+					        	
+								{% set img_transform = {
+								    mode: 'crop',
+								    width: 960,
+								    quality: 100,
+								} %}
+					        	
+					        	{% set imageSrc = item.image.first().getUrl(img_transform) %}
+					        	
+					        	<div class="comml-reel-work-card-image-wrapper">
+					                <img class="comml-reel-work-card-image block-fullwidth" src="{{ imageSrc }}">                  
+					        	</div>
+					        	
+					        	
+								<div class="comml-reel-work-card-details">
+							
+									<div class="comml-reel-work-card-time">{{ item.time }}</div>
+									<div class="comml-reel-work-card-client">{{ item.client }}</div>
+									<div class="comml-reel-work-card-project">{{ item.project }}</div>
+									<div class="comml-reel-work-card-keywords">{{ item.keywords }}</div>
+									
+								</div>
+								
+								
+								</a>
+							
+							</div>
+							
+						</div>
+					
+					{% endfor %}
+					
+				</div>		
+			
+			</div>
+			
+			{# END BREAKDOWN #}
+			
+			
+			
+	
+		</div>
+	
+		{# END MAIN #}
+	
+	
+	</div>
+
+
+
+</div>
+
+
+{% endblock main %}
