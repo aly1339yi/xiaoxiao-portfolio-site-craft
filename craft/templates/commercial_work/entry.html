@@ -304,69 +304,59 @@
 				
 					{% switch row.type %}
 					
-						{# GALLERY #}
+						{# IMAGE & VIDEO MIX #}
 					
-					    {% case "image" %}
+					    {% case "imageVideoMix" %}
 					    
-						{% for image in row.image %}
-						
-						<div class="comml-work-gallery-col comml-work-media-col col" style="width: {{ 100 / loop.length }}%;">
-		
-							<div class="comml-work-gallery-image-wrapper">
+							{% for file in row.imageVideoMix %}
 							
-								<img src="{{image.url}}" class="comml-work-gallery-image block-fullwidth">
-							</div>
+								<div class="comml-work-media-col col" style="width: {{ (100 / loop.length) | round(6, 'floor') }}%;">
+				
+									{% switch file.kind %}
+									
+									
+									{% case "image" %}
+									
+										<img class="comml-work-image block-fullwidth" src="{{ file.url }}" >
+									
+									{% case "video" %}
+									
+										<video class="comml-work-video block-fullwidth" muted autoplay loop>
+											<source src="{{ file.url }}" type="{{ file.kind }}/{{ file.extension }}" />
+										</video>
+									
+									{% endswitch %}
+
+								</div>	
+							
+							{% endfor %}
 						
-						</div>
-		
-						{% endfor %}
-						
-						{# END GALLERY #}
+						{# END IMAGE & VIDEO MIX #}
 						
 						
 						{# VIMEO VIDEO #}
 										
 					    {% case "vimeoVideo" %}
 
-						<div class="comml-work-vimeo-col comml-work-media-col col one-whole">
+							<div class="comml-work-media-col col one-whole">
+								
+								{% set video = row.video %}
+								
+								{% set videoWidth = video.width %}
+								{% set videoHeight = video.height %}
+								
+								{% set videoEmbed = video.embed({ 
+									width: videoWidth,
+									height: videoHeight
+								}) %}
+								
+								<div class="comml-work-vimeo fitvids">{{ videoEmbed }}</div>
 							
-							{% set video = row.video %}
-							
-							{% set videoWidth = video.width %}
-							{% set videoHeight = video.height %}
-							
-							{% set videoEmbed = video.embed({ 
-								width: videoWidth,
-								height: videoHeight
-							}) %}
-							
-							<div class="comml-work-vimeo fitvids">{{ videoEmbed }}</div>
-						
-						</div>
+							</div>
 						
 						{# END VIMEO VIDEO #}
 
-						{# VIDEO #}
-						
-						{% case "autoplayVideo" %}
-							
-						{% for video in row.video %}
-						
-							<div class="comml-work-video-col comml-work-media-col col" style="width: {{ (100 / loop.length) | round(6, 'floor') }}%;">
-			
-								<video class="comml-work-video block-fullwidth" muted autoplay loop>
-									<source src="{{ video.url }}" type="{{ video.kind }}/{{ video.extension }}" />
-								</video>
-							
-							</div>
-		
-						{% endfor %}
 
-						
-						{# END VIDEO #}
-
-
-					
 					{% endswitch %}
 				
 				
