@@ -61,10 +61,12 @@
 }
 
 .comml-work-card-details{
+	
 	opacity: 0;
 	@include overlay(absolute);
 	
 	display: flex;
+	flex-flow: column nowrap;
 	justify-content: center;
 	align-items: center;
 

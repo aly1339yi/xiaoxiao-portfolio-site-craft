@@ -16,7 +16,7 @@ return array(
    
         'environmentVariables' => array(
             'basePath' => '/var/www/soup_craft/public/',
-            'baseUrl'  => '//soup.yi.works/',
+            'baseUrl'  => '//2020.soupsmallsmall.com/',
         )
         
     )

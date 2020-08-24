@@ -135,13 +135,13 @@ $comml-work-text-top-height: 200px;
 }
 
 
-.comml-work-title{
+.comml-work-title-subtitle-line{
 	position: absolute;
 	top: 50%;
 	@include transform(translateY(-50%));
 }
 
-.comml-work-client{
+.comml-work-title{
     line-height: 1.2;
     font-weight: 900;
     font-size: 3.2rem;
@@ -149,7 +149,7 @@ $comml-work-text-top-height: 200px;
 	
 }
 
-.comml-work-project{
+.comml-work-title-subtitle-line{
 	
     line-height: 1;
     font-weight: 900;
@@ -182,28 +182,21 @@ $comml-work-text-top-height: 200px;
 
 
 
-
-// VIDEO
-
-.comml-work-video-section{
-	
+.comml-work-media-row{
+	flex-flow: row nowrap;
 }
 
 
-// END VIDEO
+.comml-work-media-col{
+	overflow: hidden;
+}
 
-// GALLERY
-
-.comml-work-gallery-section{
-	
+.comml-work-video{
+	width: 100.2%;
 }
 
 
-.comml-work-gallery-col{
-// 	padding: 5px;
-}
 
-// END GALLERY
 
 
 // END MAIN

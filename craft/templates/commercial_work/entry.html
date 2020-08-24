@@ -175,10 +175,10 @@
 							
 							<div class="comml-work-text-header comml-work-client-header">client</div>
 							
-							<div class="comml-work-title">
+							<div class="comml-work-title-subtitle-line">
 								
-								<div class="comml-work-client">{{ entry.commlWorkClient }}</div>
-								<div class="comml-work-project">{{ entry.commlWorkProject }}</div>
+								<div class="comml-work-title">{{ entry.commlWorkTitle }}</div>
+								<div class="comml-work-subtitle">{{ entry.commlWorkSubtitle | nl2br }}</div>
 								
 							</div>
 							
@@ -304,13 +304,13 @@
 				
 					{% switch row.type %}
 					
-					    {% case "gallery" %}
-					    
 						{# GALLERY #}
+					
+					    {% case "image" %}
+					    
+						{% for image in row.image %}
 						
-						{% for image in row.gallery %}
-						
-						<div class="comml-work-gallery-col col" style="width: {{ 100 / loop.length }}%;">
+						<div class="comml-work-gallery-col comml-work-media-col col" style="width: {{ 100 / loop.length }}%;">
 		
 							<div class="comml-work-gallery-image-wrapper">
 							
@@ -322,13 +322,13 @@
 						{% endfor %}
 						
 						{# END GALLERY #}
+						
+						
+						{# VIMEO VIDEO #}
 										
-					    {% case "video" %}
+					    {% case "vimeoVideo" %}
 
-
-						{# VIDEO #}
-					
-						<div class="comml-work-video-col col one-whole">
+						<div class="comml-work-vimeo-col comml-work-media-col col one-whole">
 							
 							{% set video = row.video %}
 							
@@ -340,12 +340,31 @@
 								height: videoHeight
 							}) %}
 							
-							<div class="comml-work-video fitvids">{{ videoEmbed }}</div>
-						
+							<div class="comml-work-vimeo fitvids">{{ videoEmbed }}</div>
 						
 						</div>
 						
+						{# END VIMEO VIDEO #}
+
+						{# VIDEO #}
+						
+						{% case "autoplayVideo" %}
+							
+						{% for video in row.video %}
+						
+							<div class="comml-work-video-col comml-work-media-col col" style="width: {{ (100 / loop.length) | round(6, 'floor') }}%;">
+			
+								<video class="comml-work-video block-fullwidth" muted autoplay loop>
+									<source src="{{ video.url }}" type="{{ video.kind }}/{{ video.extension }}" />
+								</video>
+							
+							</div>
+		
+						{% endfor %}
+
+						
 						{# END VIDEO #}
+
 
 					
 					{% endswitch %}

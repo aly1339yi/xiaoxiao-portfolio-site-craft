@@ -127,7 +127,13 @@ if($('.template-comml-work').length){
 
 }
 
+if($('.template-comml-reel').length){
 
+    skrollr.init({
+        forceHeight: false
+    });
+
+}
 
 
 
