@@ -1,4 +1,4 @@
-/* compiled by scssphp v0.1.10 on Mon, 24 Aug 2020 04:45:34 +0000 (0.4424s) */
+/* compiled by scssphp v0.1.10 on Mon, 24 Aug 2020 05:24:14 +0000 (0.4142s) */
 
 /* =========================================================================
  Color
@@ -5010,8 +5010,12 @@ html.mod-no-mobile .comml-work-card .comml-work-card-image-wrapper {
 .comml-work-card-title {
   padding: 0 15px;
   font-weight: 900;
-  font-size: 2rem;
-  text-align: center; }
+  font-size: 2rem; }
+
+.comml-work-card-subtitle {
+  margin-top: -5px;
+  font-weight: 700;
+  font-size: 2rem; }
 /* =========================================================================
  Indie Works Overview
  ========================================================================= */
@@ -5158,7 +5162,7 @@ html.mod-no-mobile .indie-work-card .indie-work-card-image-wrapper {
   font-weight: 900;
   font-size: 3.2rem; }
 
-.comml-work-title-subtitle-line {
+.comml-work-subtitle {
   line-height: 1;
   font-weight: 900;
   font-size: 3.2rem; }
